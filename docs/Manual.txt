@@ -1,0 +1,1258 @@
+								
+                        The Isle of Four Winds: Rune War
+			Documentation for Version 1.2 Demo
+
+1	Basic Stuff
+1.1	System Requirements
+1.2	Introduction
+1.3	Quick Start
+
+2	Mah Jong Rules                       
+	2.1		The Rune Set
+	2.2		The Compass
+	2.3		Playing the Game
+	2.4		Scoring
+
+3	Playing the Rune War
+3.1		Selecting a Character
+3.2		Casting Spells
+3.2.1			Shimmering Runes
+3.2.2			The Spell Menu
+3.2.3			Summonning
+3.2.4			Spell Targets
+3.3		Map View
+3.4		The Info Screen
+
+4	Movement and Combat (Rune War Only)
+4.1		Getting Information
+4.2		Moving Your Creatures
+4.3		Combat
+4.4		Claiming Land
+
+5	Vital Statistics
+5.1		Characters
+5.2		Creatures        
+5.3		Spells
+5.4		Special Abilities
+
+Appendix A      Summary of Commands
+
+
+Copyright c1997 Arcanium Productions.
+All Rights Reserved.
+
+
+This Documentation is an unpublished work fully protected by the Canada
+Copyright Act and International Copyright and is considered a trade 
+secret belonging to the copyright holder.
+
+
+1.1             System Requirements
+
+     The Isle of Four Winds: Rune War,(Version 1.2 Demo) has the following minimum
+     system requirements:
+
+     A system running Windows 95.
+     DirectX 5.0 or greater.
+     Supported screen resolution of 1024 x 768 pixels in 256 colors.(SVGA)
+     Recommanded: DirectX Compatible Sound Card.
+     
+
+1.2             Introduction
+
+     The Isle of Four Winds: Rune War is a strategy game with smooth, fast
+     gameplay.  The game consists of two parts, a tile (rune) game, and a
+     combat map.  It can be played by 1 to 4 players via LAN or Internet,
+     two players via modem.  A full game takes from two to four hours. The
+     goal is to control as much of the map as possible by the end of the game
+     by summoning creatures to take over territories, and by taking land
+     outright through winning rune battles. The game can also be played as
+     MahJong with 1 to 4 human players networked in the same way.  The Demo
+     does not have multiplayer option enabled.
+
+
+1.3             Menus
+
+The Cursor:     Left click on an option to bring the active cursor on it,
+                or use the up and down arrow keys to cycle through the
+                selections.
+                Left click again on the active selection, or press ENTER,
+                to choose it.
+
+Starting a Game:
+     First, go to the setup menu to customize your game.
+
+Setup:
+   Tutorial Mode:  Toggle Tutorial Mode (On/Off).
+   Change Timer: Changes Timer Speed.  For Beginners we suggest maximum time (30 secs)
+   Save Settings:  Save your current configuration.
+
+     From the Main Menu choose New Game.
+     Choose Solo Play.
+
+Solo Play options:
+Start Mah Jong      Start a single player game of Mah Jong.
+Start Rune War      Start a single player game of Rune War.
+Load Mah Jong Game  Loads your autosave game of MJ
+Load Rune War Game  Loads your autosave game of RW
+
+Saved Games:
+        Games are autosaved after each round.  It can be loaded when you
+	  quit a play session.
+        MahJong games are saved after each hand is completed.
+        RuneWar games are saved after each map phase is completed.
+
+2                               MahJong and Rune War 
+	
+2.1             Mah Jong Rules
+
+        These rules are just the basics needed in order to play the rune(tile)
+     game.  Visit your local bookstore or library to find a more in depth
+     treatment to learning the game of Mah Jong.
+
+2.1.1           The Rune Set:
+        The Mah Jong tile set has 34 different runes, of which there are four
+     each.  A complete set contains 136 runes.
+        There are two types of runes: suits and honors.
+     
+     Suit Runes:
+        There are 3 different suits of runes; skulls, swords, and characters
+     (in place of the dots, bamboos, and characters of a normal MahJong tile
+     set). Each suit contains runes numbered from 1 to 9, and there are four
+     of each of these, making 36 tiles of each suit, and 108 suit tiles in
+     all.
+        The 1 and 9 runes are referred to as terminals, as they Begin and 
+     terminate the suits.
+
+        The runes 2 through 8 are referred to as simples.
+        The designations terminal and simple are used for scoring purposes.
+
+     Honor Runes:
+        There are 7 different honor runes, four winds, and three dragons.
+     There are four of each of these runes, making 28 honor tiles in all.
+        The winds include the four wind directions, east, south, west, and
+     north.  The dragons are classified by color.  There are white, green,
+     and red dragons.
+        Dragons are "lucky" runes, and sets of them are termed "lucky sets".
+
+2.1.2		The Compass
+        As you start, you and your three opponents are seated above the Tower
+     of Four Winds, looking down into its hollow depths onto the central
+     summoning circle far below.  Across the bottom of the screen is your
+     hand.  Your opponents are seated at the other three edges of the
+     screen.  Their hands are concealed, and hidden from you.
+        To the left of center is a round orb encircled by a floating green
+     disc.  On the disc are the four compass directions, E, S, W, and N.
+     The acting dealer is always East, and goes first for that hand. 
+        The other three players' winds correspond to their seated position.
+		Player 2 is on the right, South: 
+		Player 3 is across the top, West;
+		Player 4 is to the left, North.
+	  On the disc,  the wind of the current player is yellow, all others 
+     are blue.  The wind for your seat (bottom wind on the compass) is your 
+     lucky wind for that round.  The wind in the middle of the compass is the
+     prevailing wind.  This is a lucky wind for all players for this round.
+
+2.1.3           Playing the Game:
+	  The turn time ("X" seconds) is variable, and can be set from the 
+     Change Timer options of the Main Menu.
+
+        Dealing:
+     Each player is dealt 13 runes.
+     Players have "X" seconds (whatever the turn time is set to) to look over
+     their hand, and Kong any concealed foursomes thay have been dealt.
+     The first player, East, draws to start the game.  Once you have finished
+     viewing your hand, you may press spacebar or click on the PASS button
+     to begin the game.
+
+     Playing procedure:
+        Once they have drawn, each player has "X" seconds to select a rune 
+     to discard.
+	  To select a rune, left click on it, or press the left or right
+     arrow keys to bring the rune-demon cursor over the rune.  The rune with
+     the grey rune-demon cursor on it is the selected rune.
+        To discard the selected rune, left click on it, or press ENTER.  When
+     a rune is discarded, it appears above the discard pile, and is active for
+     "X" seconds.  If no one makes a play on it, it falls to the discard
+     pile. Play proceeds with the player to the right drawing a rune.  You'll
+     still have time to look over your hand.  You may press spacebar or click
+     on the pass button to continue.
+     
+     Making a Special Play:   Game, Kong, Pung and Chow
+        Whenever a player claims an active discard with Kong, Pung, or Chow,
+     the set is melded (placed in front of the concealed hand, and made
+     visible to all players), and that player must discard.  Play then
+     continues to the right of that player.
+
+     Game: Winning Hands
+        A winning hand consists of four sets and a pair.  Sets can be:
+     Three consecutive runes of the same suit (sequence),
+     Three identical runes (triplet),
+     or four identical runes (foursome).
+        Sets can be either melded or concealed.  Runes in the hand can be used
+     in any combination to make concealed sets.  Concealed sets contain only 
+     drawn runes. 
+        Melded sets are fixed, the runes can't be used to form other sets.
+     Melded sets contain one claimed rune.
+
+        To declare 'Game', press 'G', or left-click on the Game button.
+        Game may be declared on any opponent's discard.  Game can also be
+     declared on a rune drawn into the hand.
+
+     Kong: Making a Foursome
+        In order to make a foursome and still have the right number of runes
+     to make a winning hand, a supplemental rune is automatically drawn into
+     your hand.  Treat the supplemental rune as if it were a normal drawn 
+     rune.  You will have "X" seconds to choose a discard.
+        To declare 'Kong', press 'K', or click on the Kong button.
+
+        There are four ways to make a foursome.
+
+     Kong: Triplet plus Discard
+        If a player's concealed hand contains a triplet, and another player
+     discards the fourth rune of that type, the player may declare 'Kong' to
+     make a melded foursome.
+
+     Kong: Melded Triplet plus Draw
+        If a player has previously melded a triplet and draws the fourth rune
+     of that type, the player may declare 'Kong' to make a melded foursome.
+        A supplemental rune is brought into the player's hand, and play
+     continues as if the supplemental rune had been drawn.
+
+     Kong: Triplet plus Draw
+        If a player's concealed hand contains a triplet, and that player
+     draws in the fourth rune of that type, the player may immediately
+     declare 'Kong' to make a concealed foursome.  Once the rune has been
+     incorporated into the hand, 'Kong' may not be declared, and the foursome
+     will not be recognized as a set.
+     A concealed foursome appears in front of the player's hand as if it
+     were a melded set, except that the outer two runes of the set are face
+     down.  A concealed foursome is considered as concealed for scoring
+     purposes.
+
+     Knog: Foursome on Deal
+        You have "X" seconds before the dealer draws to declare 'Kong' to make
+     a concealed foursome.      	
+
+     Pung: Making a Melded Triple
+        If a player's concealed hand contains a pair or better of a certain
+     rune, and another player discards that rune, the player may declare
+     'Pung' to make a melded triplet.
+        The melded triplet appears in front of the player's hand, and the
+     player must discard.
+        Play continues to the right of the player who declared 'Pung'.
+        To declare 'Pung', press 'P', or click the Pung button.
+
+     Chow: Making a Melded Sequence
+        If the player to your left discards a rune, and you can use it to
+     complete a sequence, you may declare chow.
+        To declare 'Chow, press 'C', or click the Chow button.
+
+        The rune is brought into your hand, and a cursor appears over the
+     first rune of the highest ranking sequence which contains the claimed
+     rune.  
+        If the rune can be used to complete more than one sequence, the
+     lower portion of the selection cursor will appear on other runes that
+     begin a sequence containing the rune just taken in.  
+        You have "X" seconds to select, either by left and right arrows 
+     and enter key, or by left-click of the mouse.
+
+     Example: 
+          Your hand contains 2,3,5,6 of swords.  
+          The player to your left discards 4 of swords.
+          You declare 'Chow'.
+          The 4 of swords appears in your hand.  The possible sequences
+        containing this rune are 4,5,6 or 3,4,5 or 2,3,4.  The highest
+        ranking of these sequences is 4,5,6.  The first rune of this
+        sequence is 4.  Thus, the cursor appears over the 4 of swords.
+          Other runes that begin a sequence which contain the 4 of swords are
+        the 2 and 3.  With the cursor or mouse, you can cycle the cursor
+        between the 2,3 and 4.
+          You have the normal 5 seconds to select which sequence to meld once
+        the rune is brought into your hand.
+          Selecting the 4 melds the 4,5,6 set.
+          Selecting the 3 melds the 3,4,5 set
+          Selecting the 2 melds the 2,3,4 set.
+          The default set is the highest ranking set, so 4,5,6 is melded if
+        none is selected within 5 seconds.
+          After melding the sequence, you have 5 seconds to discard, and play
+        continues to your right.
+
+     Melded vs. Concealed Sets
+        There have already been several mentions of melded and concealed sets.
+        There is a distinct difference between the two.  
+        Melded runes appear in front of a player's hand in the set they were
+     melded as.  All players can see your melded sets.  Melded runes can no 
+     longer be used for any other purpose, be it as components for casting 
+     spells or as runes to complete other sets.  However, a melded set does 
+     count as a set towards completing a winning hand.
+        Concealed runes are much more versatile.  They can be used in any
+     combination to make sets, although each rune can only be part of one set.
+     
+     The Guardians
+        The guardians each serve a function corresponding to the four
+     gameplay options 'Game', 'Kong', 'Pung', and 'Chow'.  When you declare
+     one of these, the appropriate guardian checks to see if the declaration
+     is legal, and bellows out your claim if it is.  It is possible that
+     another player's claim will supercede yours.  The guardian will animate
+     after it has melded the set.
+        Here are the guardians in order of priority, along with their color
+     and function.
+        Wizard: Game (Violet)
+        Demon:  Kong (Blue)
+        Hydra:  Pung (Green)
+        Titan:  Chow (Red)
+     There is no penalty for a false declaration.  The guardians will simply
+     not acknowledge your claim.
+
+2.1.4           Scoring
+
+         Points 
+Winning Hand                    20	
+Sets
+  Sequences                      0       
+  Melded triplets          
+    Simple                       2   
+    Terminal and Honor           4   
+  Concealed triplets          
+    Simple                       4       
+    Terminal and Honor           8       
+  Melded fours                
+    Simple                       8   
+    Terminal and Honor          16   
+  Concealed fours            
+    Simples                     16   
+    Terminal and Honor          32    
+  Pairs                        
+    Suit runes                   0     
+    Ordinary winds               0      
+    Lucky runes                  2     
+    Double wind                  4      
+ Concealed hand with	
+   discarded tile	              10
+ One Chance Hand**               2
+ Self-Drawn Hand**               2
+
+** 2 points for "One Chance" and "Self Drawn" are not counted if the hand
+would otherwise be "No Points".
+
+                Doubles
+Lucky Sets
+     Lucky triplet or foursome          1
+     Double Wind triplet or foursome    2
+
+Four triplets or foursomes
+     0, 1, or 2 concealed               1
+     3 concealed                        2
+     4 concealed                    Limit
+
+Three concealed triplets, one sequence  1
+
+Three concsecutive sequences
+(1,2,3 4,5,6 7,8,9 of same suit)        1
+
+No Points                               1
+
+All Simples                             1
+
+All Terminals and Honors                1
+
+Terminal or honor in each set *         1
+
+One suit with honors                    1
+
+One suit only                           4
+
+Little three dragons
+(3 dragon sets, one being a pair)       1
+
+Ways of Going Out
+     Supplemental Tile                  1
+     Last Tile of Wall                  1
+
+* Double for "Terminal or Honor in each set" only applies if the hand
+contains at least one sequence.
+
+To calculate score, add the 20 points for the winning hand to the points for
+each set.
+If this score is 20, the double for no points applies.
+Now add the 10 points for "concealed hand with discarded tile" if applicable.
+Add up the doubles that apply to the hand and multiply by the score by the
+proper factor.
+1 double     ->     Score X 2
+2 doubles    ->     Score X 4
+3 doubles    ->     Score X 8
+4 doubles    ->     Score X 16
+5 doubles    ->     500 pts. (Limit)
+The maximum score of any hand is 500 points.
+
+                Payment
+
+When a hand is won, the following guidelines determine who pays the winner,
+in terms of the score of the winning hand.
+
+If dealer wins self-drawn:		Receives x2 from each player.
+If dealer wins from discard:		Receives x6 from discarder.
+If non-dealer wins self drawn:      Receives x2 from dealer,
+                                    Receives x1 from other players.
+If non-dealer wins from discard:	Receives x4 from discarder.
+
+
+                Limit Hands
+
+        Certain hands, due their consistency automatically receive a limit
+     score of 500 points.
+        These hands still require four sets and a pair.  Here is the list of
+     automatic limit hands.
+All Honors:             Winning hand contains only honor runes.
+All Terminals:          Winning hand contains only 1's and 9's.
+Big Four Winds:         Winning hand contains a triple or better of each wind.
+Little Four Winds:      Winning hand contains three triples or better of
+                        winds and a pair of the last wind.
+Big Three Dragons:      Winning hand contains a triple or better of each
+                        Dragon.
+Four Concealed Triplets:        A hand containing 4 concealed triplets.
+Heavenly Hand:          A winning hand won on a player's first self-drawn
+                        rune, or on the dealer's first discard.
+Nine Gates:             A concealed hand containing the following tiles, all
+                        of the same suit: 1,1,1,2,3,4,5,6,7,8,9,9,9.  Any
+                        rune of the same suit will complete a winning hand
+                        with four sets and a pair.
+Thirteen Orphans:       This is a special hand, and does not have the usual
+                        form of a winning hand. This hand contains one of each
+                        honor rune, N,E,S,W, Red, Green, and White Dragon.
+                        Plus it has 1 of each terminal rune(1 and 9 of each
+                        suit).  It contains a pair of any one of these 13
+                        runes.  This hand is concealed, because there are no
+                        actual sets.
+
+*** Some of these limit hands are rumored to grant the winner a BONUS,
+either as a special ability, supplemental effect, creature, or some map
+effect.  As none of these have ever been achieved in previous Rune Wars,
+their effects, if any, are a mystery. This is only available in the full
+version of Rune War.
+
+3             Playing the Rune War
+
+	This section applies only to playing the game in Rune War mode.
+
+3.1           Selecting a Character
+        Each wizard is limited as far as which clans he or she can play
+     for.  You may select any of the available wizards by left-click on
+     their portrait.
+        The flags of the clans that this character can play for remain 
+     bright once a character is selected, the others become grayed out.
+     Left-click on the flag of the clan you wish to represent.  Clan 
+     determines your starting territories on the Isle Map.
+        You may also select a clan first, by selecting the flag. Wizards
+     who will not play for this clan will be grayed out.
+        If you do not select a wizard or clan, it will be randomly
+     determined by the computer.
+
+        The next screen informs you of your opponents, their clans, and their
+     playing position for the first hand of MahJong.
+        
+	  You can only choose from Orachi, Lahkkho and Dayla for this demo.
+
+3.2           Casting Spells
+	Spell casting brings the Isle of Four Winds to life.  Wizards must
+     take care in casting, because in most cases, casting a spell alerts
+     opponents to the runes in your hand.
+
+3.2.1         Shimmering Runes
+        You will notice when playing in Rune War mode that your runes have a
+     shimmering outline.  This denotes the presence of magic within the rune.
+     At the start of each hand, all the runes are recharged by the Mages of
+     the Tower and possess magic.  There are many ways to use this magic:
+     Discard: Discarding a magical rune yields 10 spell points.
+     Melding: Whenever you meld a rune which contains magic you receive 10
+        spell points for each such rune melded. (Note: The discard used in
+        melding the set has no magic since another player has already
+        discarded it)
+     Casting Spells: Most spells require components as well as spell points
+        to cast.  Any runes used as components have their magic depleted
+        and do not contribute any spell points.
+     Winning: Any runes with magic left in them will give you 20 spell
+        points each if you win the hand.
+
+3.2.2         The Spell Menu
+	Press 'S'. (or click the wand button to the right of your runes)
+     This gives you a menu of spells you know in two columns.  Spells in
+     white text cannot be cast due to a lack of spell points or components.
+     Spells in yellow text can be cast.  Those in red cannot be cast because 
+     they summon unique creatures that are currently on the map.
+	To cast a spell, left-click on any part of the spell info, including
+     components, cost, or name.  When you cast a spell, the appropriate
+     screen comes up to allow you to choose a target.
+	To leave the spell menu without casting, left-click outside of the
+     spell box, or press 'S' again.
+
+3.2.3         Summoning
+	Once you have summoned a creature from the spell menu, the map comes
+     up to allow you to place your creature.  You can only summon creatures
+     into one of your territories containing a summoning circle, or into the
+     middle territory (Tower of Four Winds) where no combat can take place.
+     The territories you can summon into have animated summoning circles.
+     You have "X" seconds to place your creature.
+        Each wizard can only have 5 creatures in play at a time, with as many
+     as three in any one territory.  You can use the dismiss option during the
+     map phase if you want to make room for a new creature.  You cannot 
+     dismiss creatures from the map view screen while playing the MahJong plase.
+ 
+3.2.4         Spell Targets
+
+	Enchantment spells must be cast on a target.
+	To target a creature with a supplemental spell, click on the
+     territory.  This will bring up any visible creatures in the army boxes
+     at the top-right part of the screen (your own invisible creatures can
+     be targeted by you).  Now left-click on the creature you wish to
+     target.  You can see the information on the creature before you cast the
+     spell by right clicking on the creature.
+	Friendly spells can only be cast on your own creatures.
+	Enemy spells can only be cast on your opponents' creatures.
+	Spells that affect a party are cast on any member of the party.
+
+3.3           Map View
+Press 'V' .  This allows you to look at the map as you would during the map
+     phase.  Right or left-click on a territory for information on it.
+     The territory info and visible creatures will appear in the top
+     right portion of the screen.  Right-click on a creature for
+     information on it.
+
+3.4           The Info Screen
+        Available during both the Mah Jong phase of the game and during the
+     map phase, the info screen gives a summary of the four wizards' progress
+     in the Rune War.
+Press 'I'. (button is blue orb with ?). Shows the four players in original
+     play order from top to bottom.  Left click on the "Close" button, or press
+     'I' to toggle the screen off. For each player, the following info is
+     given:
+     Left to Right
+       The Wizard's Portrait
+       Icons for Name, Clan, and Spell Points
+       Name, Clan name, and Spell Points.
+       Clan flag and current creatures on the map.
+       Icons for number of territories, total value of
+         territories, and number of summoning circles.
+       Number of territories, total value of territories,
+         and number of summoning circles.
+       Flags of the other 3 clans.
+       Land claim points you have against each of the
+         other clans.
+
+4               Movement and Combat (Rune War Only)
+		
+        After each hand of MahJong is finished, the game moves to the
+     map phase.  During the map phase, players may move any creatures 
+     they have summoned, and claim land from their opponents.
+        The map is a full overhead view of the Isle of Four Winds
+
+4.1             Getting Information
+
+        The East player of the last MahJong round moves first, followed
+     by South, West, and North, just as in the MahJong phase.
+        When it is your turn to move, you will see your wizard's picture
+     on the right.  Also, you will see yellow dots moving from the center
+     territory to the center of all adjacent territories.
+
+     To the right of the map are several information boxes and buttons.
+     The top information box is reserved for the name of the current
+        territory.
+     Below this are the stats for this territory, including combat
+        values, land value, and whether or not the territory contains
+        a summoning circle.
+     The 8 square boxes below the territory info are for army viewing
+        and manipulation.  The top set of 4 is reserved for defending
+        armies, and the bottom set for attackers.
+        Note:  The Tower of Four Winds can contain armies from all
+        four clans.  You can view all four clans by left-click on
+        a flag to cycle through the flags.
+     The large framed window is the view window.  This shows a portrait
+        of anything you are viewing.  The space just outside the frame
+        of this window is reserved for enchantment icons (if you are 
+        viewing a creature).  Right-click on an icon to see information
+        on the spell it represents.
+     Below the view window is an information box giving the mname of 
+        the object in the view window.
+     Buttons for Chat, Info, and Menu options, plus Dismiss, Undo, 
+        and Done.
+
+        To see information on a territory, simply left or right-click on it.
+        On the map you will see a castle in each territory.  This castle
+     identifies the clan ownership.  To see which player represents this 
+     clan, either:
+        check the info screen (Press"I" or the Info button), or
+        bring up the territory info and right-click on the clan flag.
+           (This brings up the wizard's portrait in the view window, 
+           and the clan name below that.)
+
+
+4.2             Moving Your Creatures
+
+        To move your creatures, first bring up the territory.  Units selected
+     for movement will have a bright green outline.
+        To toggle a unit for movement, left-click, this will toggle the green 
+     outline.  Now drag and drop from your current territory to the one you 
+     wish to move to (must be an adjacent territory).  All units which were 
+     highlighted are now in the new territory.
+
+4.3             Combat
+
+Combat Statistics: 
+All creatures have four combat stats, (Melee\Ranged\Defense\Loyalty).
+
+     Melee:  Attack strength of the creature in melee combat.  This is pitted
+        against the defense strength of the opposing creature.  The difference
+        (if positive) is the amount by which the opponent's loyalty is
+        reduced.
+     Missile: Attack value of the creature or territory in ranged combat, does
+        direct damage to loyalty with no defense adjustment.  Ranged attack is
+        used only for one round, before the melee combat begins, and does not
+        affect creatures that have the special ability Ignore Missiles.
+        Territories cannot be targeted by ranged attacks.
+     Defense: Defensive strength of the creature.  Specifies the amount of
+        melee attack strength the creature can negate in melee combat.
+     Loyalty: The amount of damage a creature will take before abandoning its
+        summoner.
+
+	Combat takes place anytime a creature ends its turn in an enemy
+     territory.
+
+        The first round of combat is ranged combat.  Ranged combat is
+     simultaneous, and includes the territory ranged attack.  The territory
+     does ranged damage to one of the enemy creatures, and all creatures
+     (attacking and defending) with a ranged attack rating of one or better
+     shoot missiles at the enemy.  Damage is then resolved for this round.
+     Territories and creatures that ignore missiles are not targeted by ranged
+     attacks.  Apart from this, targets are chosen randomly by each creature.
+     Target creature loyalty is reduced by the ranged attack strength of the
+     opponent, with no defensive adjustment.
+        After the ranged combat round, melee combat commences.  In melee
+     combat, the team that holds the territory goes first.  The first battle
+     pits the leading creatures of the two parties.  Melee attack value of a
+     creature is raised by one for each additional creature in the party
+     behind the one currently attacking.  (Thus, a party of maximum size, 3
+     creatures, confers a bonus of 2 to the melee value of the leading
+     creature.)  There is no such bonus to the defense or loyalty values,
+     except for parties containing 2 or more creatures with the merge special
+     ability.
+	In combat, if the melee strength of a combatant is less than or equal
+     to the defense of the creature it is in combat with, the following table
+     applies:
+
+		Defense - Melee			% chance to hit
+                        0                               50
+                        1                               25
+                        2                               12
+                        3                                6
+                        n                             1/(n+1)
+
+        Sample Combat:
+   A Wraith(7\0\4\5) and a durlock(6\1\3\5) end their turn in an enemy
+territory(4\2\3\5) that contains an Adventure Party(5\1\4\5).
+
+Ranged combat:  The Durlock, the Adventure Party, and the territory all have
+   ranged attacks.
+        The territory targets the Wraith (random choice), doing 2 damage and
+     lowering it's loyalty to 3.
+        The durlock does 1 damage to the Adventure Party (Territories cannot
+     be targeted by ranged attacks) reducing it to 4 loyalty.
+        The Adventure Party ranged attack targets the durlock (random choice),
+     and lowers its loyalty to 4.
+        Territory ranged attack takes place first.  Creature ranged attacks
+     are resolved simultaneously.  Note that even an already dead creature may
+     seemingly be targeted because it is simultaneous.
+
+Melee Combat:
+        The Wraith has one supporting creature, raising its melee rating by 1,
+     its statistics are (8\0\4\3).  The Adventure Party is (5\1\4\4).  The
+     ranged attack values no longer come into play.
+        The defending creature (Adventure Party) attacks first.  Its melee is
+     5, the Wraith's defense is 4, so the Wraith's loyalty is reduced by 1 to
+     2.
+        The Wraith attacks, melee 8 versus defense 4, doing 4 damage.  The 
+     Adventure Party's loyalty is now zero, and it flees combat, and it is 
+     no longer controlled by its summoner.
+        It is now the defender's turn.  The territory now engages in melee
+     combat, summoning all it's native creatures and the power of its
+     elements.(4\2\3\5)
+        With its melee value of 4 against the Wraith's defense of 4, the
+     territory has a 50% chance of doing 1 damage.  It is successful, and the
+     Wraith's loyalty is reduced to 1.
+        The Wraith attacks the territory, 8 Melee vs 3 Defense, doing 5 
+     damage and conquering the territory.
+
+        Note: The "First Strike" special ability affects the combat sequence.
+        Parties led by Learra the Siren and Carol the Great get this bonus.  
+        When such parties attack an enemy territory, only the territory gets
+        a ranged strike.  The rest of the ranged combat round is skipped.  
+        Also, the attacking team strikes first in the Melee round.
+
+4.4            Claiming Land
+
+        On your movement turn, any territories that can be claimed will have
+     a deed scroll over the castle.  Double left-click on a deed to make the
+     territory yours.
+        You may claim any empty enemy territory which borders on one of your
+     territories.  The enemy territory cannot be guarded by friendly creature,
+     and you must have land claim points against the owner clan equal to or
+     greater than the value of the territory.  Remember, some territories might
+     seem to be empty, but could be occupied by invisible creatures.
+        NOTE: The center territory, Tower of Four Winds, is neutral, and is
+     not taken into account when borders are determined.
+
+5               Vital Statistics
+
+5.1	Characters
+
+ORACHI:       Will accept call from Maitha and marz.
+Description:  Orachi is a master of the Undead.  The source of his magic is
+              the dead souls he leaves in his wake.  His origins are unknown.
+Summoning:	All Skulls
+Supplemental: Common, All Skulls
+Specials: 	Red Dragon, Fire Elemental
+
+LAKKHO:       Kartha wizard
+Description:  Lakkho is the first Karthan bred wizard with the magical
+              ability to be competitive in the Rune Wars. He is sure to
+              become a legend among his people.
+Summoning:    All Swords
+Supplemental: Common, All Swords
+Specials:	Green Dragon, Earth Elemental
+
+DAYLA         marz wizard
+Description:  Dayla is the next in the long line of capable Marz Rune War
+              mages.  Her repertoire of spells focuses on loyalty and
+              mobility.
+Summoning:	All Magic Numbers
+Supplemental: Common, All Magic Numbers
+Specials:	White Dragon, Water Elemental
+
+ZIAG          iz wizard
+Description:  Ziag is a master of supplemental spells.  This power gives him
+              the ultimate combat flexibility, being able to change the odds
+              quickly in his favor.
+Summoning:	Shadow, Kilor Celsbane, Sand Wraith, Chameleon
+Supplemental: Common, All Supplemental
+Specials:	Permanent See Invisibility
+
+NIANA	Will accept iz or Kartha commission.  Will accept any call to
+              oppose ORACHI.
+Description:	Niana's pact with the demon lord Maz'ra gives her the dreaded
+	Hellblast.  This, combined with a strategic spell list makes
+	her an effective specialist.
+Summoning:	Minotaur, Adventure Party, Fire Giant,
+	Sand Wraith, Stone Golem, Thunder Bird.
+Supplemental:	Common, Guidance, Dust Cloud, Brilliant Lights, Smoke
+Specials:	Hellblast, Fire Elemental
+
+KIERAC        Will accept call from iz or marz.
+Description:  Kierac is a stealthy and resourceful wizard.  His uncanny knack
+              for summoning has earned him the title 'Master of Summoning'.
+Summoning:	All Skulls, Swords, and Magic Numbers
+Supplemental:	Common
+Specials:	None
+
+LOGUN         Bard: Will play for any clan. 
+Description:  Logun is friend to all.  His charisma and persuasion have
+              garnered him the respect and favour of all three dragons.  His
+              ingenuity has garnered him the secret to the Juggernaut.
+Summoning:	Skeleton Horde, Durlock, Carol the Great,Adventure
+	Party, Stone Golem, Juggernaut, Learra the Siren
+Supplemental:	Mass Panic, Brilient Light, Heroism
+Specials:	All Dragons, Logun's creatures heals 2 loyalties each map phase.
+
+
+
+NUCRUS        Maitha wizard
+Description:  Nucrus is a sneaky, underhanded trickster.  He can control 
+	the game with his elemental tricks.  His unscrupulous tactics 
+	are more than an annoyance.
+Summoning:	Skeleton horde, Shadow, Minotaur, Adventure Party,
+	Sand Wraith, Stone Golem, Tornado.
+Supplemental: Common, Teleport.
+Specials:	All Elementals.
+
+JAVED         Will accept call from Maitha or Kartha.
+Description:  Javed is master of the Air.  Being a telepath, he can
+              communicate with the Rune War guardians even when silence has
+              been invoked.  This makes him desired despite his inexperience.
+Summoning:	Wraith, Thunder Bird, Ki-Lin, Griffon.
+Supplemental: Common, Paralyze, Dust Cloud, Force Shield, Heroism
+Specials:	Air Elemental, Telepathic (Can still use game options
+              while Silence spell invoked (ie. Chow, Pung, Kong, Game))
+
+
+5.2             Creature Database
+(U) denotes unique creature
+
+                        Skull Creatures                             
+Skeleton Horde:
+Melee: 4  Ranged: 0 Defense: 1     Loyalty: 3     Move: 1
+Value: 80 Runes: 1,4     Special: Swarm
+Foot soldiers of the skull summoning chain, the skeleton horde provides
+support. Their sheer numbers allow them to swarm, attacking every member of
+an opposing army.
+
+Shadow:
+Melee: 5  Ranged: 0 Defense: 2     Loyalty: 3     Move: 1
+Value: 120     Runes: 3,7     Special: Merge, Invisibility
+Shadows are a useful staple in the skull realm.  Their ability to merge
+amongst themselves and maintain invisibility greatly enhances their attacking
+prowess.
+
+Durlock:
+Melee: 6  Ranged: 1 Defense: 3     Loyalty: 4     Move: 1
+Value: 200     Runes 2,8    Special: None
+A valued member of the skull summoning realm, the Durlock provides an initial
+foundation for a strong force with its missile fire and robust attack.
+
+Kilor Celsbane(U):
+Melee: 6  Ranged: 0 Defense: 4     Loyalty: 5     Move: 1
+Value: 240     Runes 1,4,7    Special: Invisibility
+The invisible undead knight is a formidable adversary to any mid-range unit.
+With the addition of supplemental enchantments, Kilor becomes a potent foe to any opponent.    
+
+Wraith:
+Melee: 7  Ranged: 0 Defense: 4     Loyalty: 5     Move: 2
+Value: 300     Runes 3,5,9    Special: Regeneration
+Wraiths provide the most bang for the buck in the skull regime.  Regeneration
+supplies durability in combat allowing the wraith to clean up any low to
+mid-range enemies and territories.
+
+Maz'Ra(U):
+Melee: 8  Ranged: 0 Defense: 5     Loyalty: 6     Move: 2
+Value: 500     Runes 6,6,6    Special: Hellblast, 25% Magic Resistence
+The Demon Lord known as Maz'Ra may well be the most fearsome creature
+available to summoners.  It can single handedly dispatch many capable armies
+with its overwhelming attack strength and intimidating Hellblast ability.
+
+                        Sword Creatures
+Knight Templar:
+Melee: 2  Ranged: 0 Defense: 3     Loyalty: 3     Move: 1
+Value: 100     Runes: 1,4     Special: Mighty Blow
+The Knight Templar is a solid low range summoning.  He has the ability to
+combat any low to mid-range opponent with his impressive mighty  blow.
+
+Carol the Great(U):
+Melee: 3  Ranged: 0 Defense: 4     Loyalty: 4     Move: 1
+Value: 160     Runes: 3,7     Special: Gate, First Strike
+Carol is a versatile addition to any summoner that can call her to battle.
+Her pendant allows her to gate to friendly summoning circles and gives her
+army first strike if she leads them into battle by using the short range
+displacement ability of her pendant.
+
+Minotaur:
+Melee: 4  Ranged: 0 Defense: 4     Loyalty: 5     Move: 1
+Value: 200     Runes 2,6,8    Special: None  
+Extremely resilient, the minotaur is an excellent choice for summoners.  It
+possesses solid battle attributes at a reasonable cost.
+
+Adventure Party:
+Melee: 5  Ranged: 1 Defense: 4     Loyalty: 5     Move: 1
+Value: 250     Runes 1,4,7    Special: See Invisible
+The adventure party is a wise magical investment. It combines a formidable
+ground and air assault with a stalwart defense.  Its ability to see the
+invisible can foil enemy plans.
+   
+Fire Giant:
+Melee: 5  Ranged: 2 Defense: 5     Loyalty: 6     Move: 1
+Value: 300     Runes 3,6,9    Special: None
+This high range creature is strong in all facets of combat like most sword
+creatures.  Its initial ranged strike is followed by a potent melee attack.
+
+King Drago(U):
+Melee: 6  Ranged: 1 Defense: 6     Loyalty: 6     Move: 1
+Value: 400     Runes 2,5,5,8  Special :90% Magic Resistance, Mighty Blow
+King Drago is the jewel of the realm of swords.  His consistencies in the art
+of war are bolstered by his resistance to magic.  Add his mastery of the
+fearsome mighty blow and you have an awesome fighting machine.  Unfortunately
+he is difficult to heal.
+
+
+                        Number Creatures 
+Sand Wraith:
+Melee: 4  Ranged: 0 Defense: 1     Loyalty: 4     Move: 1
+Value: 100     Runes: 1,4     Special: Invisibility
+The sand wraith is an exceptional strategic unit because of its invisibility.
+Pair off a sand wraith or two with a mid range creature and watch the
+overconfident big ones fall.
+
+Stone Golem:
+Melee: 4  Ranged: 0 Defense: 2     Loyalty: 5     Move: 1
+Value: 140     Runes: 3,7     Special: Regeneration
+With its exceptional resilience and regeneration, the stone golem makes for a
+solid low range creature ideal for support.
+
+Learra the Siren(U):
+Melee: 5  Ranged: 0 Defense: 3     Loyalty: 6     Move: 1
+Value: 220     Runes 2,6,8    Special: First Strike
+A hauntingly gorgeous individual,  Learra's hypnotic song freezes opponents
+in combat when she leads an attacking party, providing her with the first
+strike.  A good melee property makes this strike quite nasty.
+
+Thunder Bird:
+Melee: 5  Ranged: 1 Defense: 3     Loyalty: 6     Move: 2
+Value: 260     Runes 1,4,7    Special: None
+The thunder bird introduces a ranged attack to the number realm.  Couple this
+with hearty melee and loyalty values and you have a powerful mid-range unit.
+    
+Ki-Lin:
+Melee: 6  Ranged: 0 Defense: 4     Loyalty: 7     Move: 2
+Value: 350     Runes 3,6,9    Special: Ignore Missiles
+This fearsome serpent like beast has no visible weaknesses.  Its lack of a
+ranged attack is offset by its ability to ignore missiles while its other
+abilities are very impressive.
+
+Shanahan(U):
+Melee: 7  Ranged: 2 Defense: 4     Loyalty: 8     Move: 2
+Value: 450     Runes 2,5,5,8  Special: Devotion;
+Shanahan the Cloud Giant is the pinnacle of the number realm.  There are many
+options available to the commander of this big boy.   Overwhelm most anything
+by itself, or attach it to a party and wreak havoc across the Isle.
+
+                            Dragons
+White Dragon(U):
+Melee: 7  Ranged: 1 Defense: 5     Loyalty: 8     Move: 2
+Value: 500	Runes: 3 Wh. Dragon(WD)
+Special: Cast draw char.(40 pts)
+The White Dragon is extremely resilient and loyal by nature.  Factor in its
+ability to allow the summoner to draw a character rune and its consistent
+battle characteristics and you have a top notch unit at your command.
+
+Green Dragon(U):
+Melee: 9  Ranged: 0 Defense: 4     Loyalty: 7     Move: 2
+Value: 500	Runes: 3 Gr. Dragon(GD)
+Special: Cast draw sword.(40 pts)
+The Green Dragon is a very hostile and aggressive beast.  Its lack of a
+missile strike is supplemented by a fearsome attack strength and a high
+loyalty.  When in play, this Dragon grants its controller the ability to draw
+a sword rune.
+
+Red Dragon(U):
+Melee: 7  Ranged: 3 Defense: 5     Loyalty: 6     Move: 2
+Value: 500	Runes: 3 Red Dragon(RD)
+Special: Cast draw skull.(40 pts)
+The Red Dragon has a particular affinity to the skull realm, allowing its
+summoner the ability to draw a rune of skulls.  It has an intense ranged
+breath attack and a capable defense making it another powerful minion to do
+your bidding.
+
+                                
+                       Special Creatures           
+Juggernaut (U):
+Melee: 7  Ranged: 0 Defense: 4     Loyalty: 6     Move: 1
+Value: 320     Runes:4SK,4S,4N          Special: Regeneration
+This creature leads its category on the battlefield.  It combines strength,
+resilience, and broad movement. The Juggernaut is indeed a powerful summons.
+
+Tornado:
+Melee: 5  Ranged: 0 Defense: 5     Loyalty: 5     Move: 2
+Value: 240     Runes: N,E,S,W.          Special: Ignore Missiles
+A wizard must draw upon the power of the winds to summon a tornado.  A
+stronge mid-ranged being, the tornado offers immunity to missile attacks and
+consistent battle attributes.
+
+Griffon:
+Melee: 4  Ranged: 0 Defense: 3     Loyalty: 4     Move: 2
+Value: 170     Runes: E,1N,9N           Special: Merge, See Invisible
+The griffon is a credible strategic unit.  Its ability to merge and see the
+invisible along with its capable combat properties makes it a useful low
+range creature. An excellent scout with its high movement.
+
+Chameleon:
+Melee: 3  Ranged: 1 Defense: 3     Loyalty: 3     Move: 1
+Value: 150     Runes: 8 Sw, GD          Special: Invisible, Regeneration
+Chameleons are stealthy archers of the lizard persuasion.  Their hearty
+nature and loyalty to Ziag allow them to recuperate quickly.  This is the
+only invisible unit with ranged attack capability.
+
+
+                            Elements
+
+Fire Elemental(U):
+Melee: 5  Ranged: 2 Defense: 3     Loyalty: 5     Move: 1
+Value: 300	Runes: Pair S
+Special: Cast random discard.(30 pts and S), Fire Shield.
+The Fire Elemental is a particularly volatile creature.  A potent attack
+force that employs a solid melee and ranged attack, its ability to grant the
+random discard spell is its real burn.
+
+Earth Elemental(U):
+Melee: 5  Ranged: 0 Defense: 5     Loyalty: 5     Move: 1
+Value: 300	Runes: Pair E
+Special: Cast scry runes.(30 pts and E), Regeneration.
+Born from the ground beneath, the Earth Elemental is another consistent
+battle force. The one who controls it receives the ability to peek at his or
+her opponents hands with the scry runes spell.
+
+Air Elemental(U):
+Melee: 5  Ranged: 1 Defense: 3     Loyalty: 7     Move: 2
+Value: 300	Runes: Pair N
+Special: Cast silence.(30 pts and N, duration: 3 rounds.), Immune to missiles.
+The Air Elemental proves to be the greatest combatant af all the elements.
+Summoners calling upon this element gain the favor of the silence spell, an
+annoyance to all wizards who are stricken with it.
+
+Water Elemental(U):
+Melee: 4  Ranged: 0 Defense: 4     Loyalty: 7     Move: 2
+Value: 300     Runes: Tr W    
+Special: Cast fog.(30 points and W, duration: 3 rounds.), Swarm.
+The Water Elemental is a powerful force on the Isle, and in the Rune Game.
+Fog is the strategic annoyance granted to the commander of this  element.
+
+
+5.3	Supplemental Spells
+                                
+Common Spells
+
+Dispel Magic    	Runes: None              	Target: Any unit    
+Effect: Remove enchantments 		Cost: 100
+Removes all enchantments from the target creature.  Does not affect any
+special abilities.
+                                
+Lightning Bolt    Runes: None              	Target: 1 enemy
+Effect: -1 Loyalty       		Cost: 80
+The caster of this spell summons the power of the skies to strike an enemy
+creature with a lightning bolt. Shocking!
+
+Heal   		Runes: None            		Target: 1 friendly
+Effect: +2 Loyalty, up to max 	Cost: 100
+Description: An important supplementary spell, healing restores two loyalty
+to a friendly unit..  Loyalty will be added up to the target's maximum.
+
+Special Spell
+This spell is only available to Niana, and also a special ability of Maz'Ra.
+Hellblast		Runes: 6Sk,1RD      		Target: 1 enemy party
+Effect:-2 Loyalty             	Cost: 80
+Description: The most destructive spell in the lands, hellblast surrounds a
+targeted enemy army with a searing hot firestorm causing some major damage.
+
+        -------------------------------------------------------------
+Skull Realm     All the components required for these spells are skull runes.
+
+Demonic Compulsion Runes: None    			Target: 1 friendly
+Effect:+1 Loyalty               Cost: 20
+Description: The caster draws upon the power of the demons to bolster the
+        loyalty of one of his minions.
+
+Mass Panic   	Runes: 7,9               	Target: 1 enemy party
+Effect:-1 Loyalty             	Cost: 50
+Description: The summoner directs the face of fear at an enemy army group,
+        sending them into panic and reducing their loyalty.
+
+Paralyze		Runes: 5,8               	Target: 1 enemy
+Effect: Freeze creature       	Cost: 40
+Description: Another mind altering spell, paralyzing fear ceases the movement
+        of one enemy creature for one turn as it becomes wracked with terror.
+
+Reduction      	Runes: 4,9	             	Target: 1 enemy
+Effect:-1 Defense, -1 Melee   	Cost: 60
+Description: With this spell the summoner is able to harness the power of the
+        skull realm to drain the will of one enemy creature, reducing its
+        combat characteristics.
+
+Magical Aura  	Runes: 2,5	      		Target: 1 friendly
+Effect:+1 Defense        	Cost: 40
+Description: The magic of this enchantment consumes its target, making it
+        feel more confident in its abilities.  As a result, the creature
+        touched by this gains in defense.
+        -------------------------------------------------------------
+
+Sword Realm     All the components required for these spells are sword runes.
+
+Guidance      	Runes: 6               		Target: 1 friendly
+Effect:+1 Ranged         		Cost: 20
+Description: This spell sharpens the vision of one friendly creature with
+        ranged combat ability,  enabling it to pinpoint its ranged attack.
+
+Battle Fury       Runes: None              	Target: 1 friendly
+Effect:+1 Melee               	Cost: 30
+Description: An intense bloodlust flows through the veins of the recipient of
+        this spell, making it a more fierce attacker.
+
+Force Shield      Runes: 7,9               	Target: 1 friendly
+Effect: Missile Damage -1     	Cost: 30
+Description: The caster of this spell is able to conjure a shield of energy
+        around a single friendly creature, reducing the effectiveness of
+        missile and territory fire against it.
+
+Dust Cloud          Runes: 5,8               	Target: 1 enemy
+Effect:-1 Melee                 Cost: 30
+Description: Swirling winds surround the target of this spell kicking up dust
+        and other debris.  The target becomes distracted and unable to fully
+        defend itself.
+
+Heroism        	Runes: 4,9             		Target: 1 friendly
+Effect:+1 Melee ,+1 Loyalty   	Cost: 50
+Description: The target of this spell becomes inspired by visions of mighty
+        warriors cutting down their enemies.  This greatly enhances the
+        combat ability of the enchanted.
+
+        -------------------------------------------------------------
+Character Realm         All the components required for these spells are
+                        character runes.
+Mystical Fountain Runes: None              	Target: 1 friendly
+Effect: Random           	Cost: 30
+Description: The waters of a great mystical fountain are sprinkled upon the
+        recipient of this spell giving it a random bonus. The target receives
+        +1Melee, +1Loyalty or +1Ranged.
+
+Blind Ambition 	Runes: 6                    	Target: 1 friendly
+Effect: Mel+1, Rngd+1, Loy-2    Cost: 20
+Description: When a friendly creature is enchanted with this spell it becomes
+        extremely eager for battle, sacrificing loyalty for the lust of
+        battle.
+
+Smoke   		Runes: 8	              	Target: 1 enemy
+Effect:-1 Ranged              	Cost: 20
+Description: A cloud of billowing smoke surrounds one enemy creature limiting
+        its visibility.  This will reduce or negate the target's ability to
+        make a ranged attack.
+
+Brilliant Lights	Runes: 7,9	      		Target: 1 enemy
+Effect:-1 Defense        	Cost: 40
+Description: Extremely bright lights appear and dance around the target of
+        this spell, distracting it from battle and  reducing its ability to
+        defend itself.
+
+Teleport       	Runes: 4,9             		Target: 1 friendly
+Effect: Special               	Cost: 50
+Description: An excellent utility spell, teleport allows the caster to call
+        upon the gates of travel to shift any one of his or her minions to
+        any friendly territory.
+
+             -------------------------------------------------------------
+5.4	Creature Special Abilities
+
+Hellblast  		Users: Maz'Ra the Demon Lord
+Description: The presence of the possessor of this ability sends even the
+        bravest of souls into panic. This is reflected by the loss of 2
+        loyalty points to all that combat it.
+
+Fire Shield 	Users: Fire Elemental.
+Description: The fire shield reduces the loyalty of any creature that 
+	  strikes its bearer in melee combat by one.
+
+First Strike	Users: Carol the Great, Learra the Siren.
+Description: Those who possess this ability and lead their party into combat
+        forego ranged combat, and are granted first strike in melee combat.
+        This only applies to attacking parties.
+
+Gate   		Users: Carol the Great
+Description: This ability allows the unit to teleport into any friendly
+        territory containing a summoning circle by calling on the portals of
+        travel.
+
+Ignore Missiles	Users: Ki-Lin, Tornado.
+Description: Creatures with this ability can avoid the effects of missile fire
+        when in combat.
+
+Invisibility	Users: Sand Wraith, Shadow, Kilor Celsbane, Air Elemental.
+Description: Invisible creatures may move across the isle free from detection,
+        only to appear in combat.  Surprise!
+
+See Invisible       	Users: Adventure Party, Griffon
+Description: Those blessed with this ability can see invisible units in
+        adjacent territories.
+
+Magic Resistence Major  Users: King Drago
+Description: Those possessing Major Magic Resistence receive a %90 chance to
+        ignore the effects of spells directed at them by any wizard.
+
+Magic Resistence Minor  Users: Maz'Ra the Demon Lord
+Description: Those possessing Minor Magic Resistence receive a %25 chance to
+        ignore the effects of spells directed at them by any wizard.
+
+Merge               	Users: Shadow, Griffon
+Description: This ability allows creatures of the same type to link together
+        in battle, instilling a +1 melee and +1 defense to each of these
+        creatures, instead of just the +1 melee usually granted for supporting
+        creatures.
+
+Mighty Blow         	Users: Knight Templar, King Drago
+Description: This fearsome ability gives the possessor a %25 chance to strike
+        a devastating blow in combat.  A succesful mighty blow boosts melee
+        strength by 3, and guarantees that at least one damage is done,
+        regardless of the opponents defense rating.
+
+Regeneration        	Users: Stone Golem, Wraith, Juggernaut, Chameleon,
+					 Earth Elemental.
+Description: Regenerating creatures are restored to maximum loyalty at the
+        beginning of the map phase.
+
+Swarm               	Users: Skeleton Horde, Water Elemental.
+Description: Creatures employing the ability to swarm may attack a full party
+        instead of just the leader, overwhelming them with sheer numbers.
+
+Devotion			Users: Shannahan
+Description: Shannahan heals 2 loyalty before movement phase.
+        -------------------------------------------------------------
+
+Appendix A:     Summary of Commands:
+
+Hotkeys and Functions Reference Sheet
+
+Press ESC at any time to return to the Main Menu.
+
+MahJong Phase Hotkeys:
+
+i:      Toggles the information screen on or off. (Rune War only)
+v:      Toggles the map on and off. (Rune War only)
+s:      Toggles the spell casting box on and off. (Rune War only)
+p:      Will pong the current discarded rune.
+c:      Will chow the current discarded rune.
+k:      Will kong the current discarded rune or a foursome in your hand.
+g:      Will call game and claim victory assuming you have a winning hand.
+        pause: Will pause the game.(functional in any phase)
+alt+tab:Will pause and minimize the game.(functional in any phase)
+arrows: 1/Using thaese keys on your turn will cycle the cursor through your
+        rune hand.
+        2/Using these keys when chowing a discard will cycle through the
+        chowing options in your hand, assuming you have multiple choices.
+        You must select the first rune of the sequence you wish to meld.
+space:  Will pass on the current discard, and bypass the timer.
+pause:  Brings up the pause screen.
+
+
+Map Phase Functions: (Rune War only)
+
+view:   Right click on any territory or creature and its information will
+        appear in the information box at the far right side of the map.
+        Right clicking on a flag that is situated at the front of any player's
+        army line will display the wizard controlling that clan.
+toggle move:    When a creature is able to move it is outlined by a green
+        cursor.  You may toggle this on or off by left clicking on the
+        creature.  This will allow you to move creatures that sit in the same
+        army line to different destinations. If you wish to move the entire
+        army line then each creature's movement cursor must be active.
+movement:       A creature or creatures in the same army line outlined by a
+        green movement cursor may be moved.  This is done by left clicking
+        and holding on the territory the creature or creatures are contained
+        in, then dragging and releasing the mouse when at the desired
+        destination.   Note: you may only move into an adjacent territory.
+        Therefore creatures with two movement must repeat the above process.
+swap:   Left click and hold on the desired target, then drag on top of
+        creature you wish to swap positions with and release the mouse button.
+        This is to organize the order of your army within a territory.
+dismiss:        Left click on the dismiss button located at the bottom-right
+        corner of the map screen to activate the dismiss function.  Select a
+        target to dismiss and double left click on it.  It will be removed
+        from your forces.  If you decide this is a mistake, simply left click
+        on the undo button and that creature will return.  Note: this will
+        also undo all that you have done that turn.
+undo:   Left click on this button to reset the map phase of that turn.  All
+        movement and land claims done on this turn will be undone, and you
+        can do them over.
+        Note: this will not reset the timer.
+gate:   Gate is a power unique to Carol the Great.  It functions as follows:
+        Carol can teleport herself and or units in her territory to any
+        friendly territory containing a summoning circle including the tower
+        territory.   To move the entire line simply left click and hold,
+        making sure the green movement cursors are active, then move the
+        cursor to the desired destination, remembering it must contain a
+        friendly summoning circle, and release.   You may select a creature
+        from an army line to gate by toggling their movement cursor on and
+        off. 
+        Note: Carol does not have to move herself, and gating a creature
+        requires one movement point for that creature.

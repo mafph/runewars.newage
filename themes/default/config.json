@@ -1,0 +1,7 @@
+{
+    "music": false,
+    "sound": true,
+    "sound:guardianrules": false,
+    "display:accel": true,
+    "display:fullscreen": false
+}

@@ -1,0 +1,28 @@
+# makefile
+# project: RuneWars New Age
+#
+
+SDL_CFLAGS	:= $(shell pkg-config SDL --cflags)
+SDL_LIBS	:= $(shell pkg-config SDL --libs)
+ifndef SDL_CFLAGS
+SDL_CFLAGS	:= $(shell SDL-config --cflags)
+endif
+ifndef SDL_LIBS
+SDL_LIBS	:= $(shell SDL-config --libs)
+endif
+
+TTF_CFLAGS	:= $(shell pkg-config SDL_ttf --cflags)
+IMAGE_CFLAGS	:= $(shell pkg-config SDL_image --cflags)
+MIXER_CFLAGS	:= $(shell pkg-config SDL_mixer --cflags)
+NET_CFLAGS	:= $(shell pkg-config SDL_net --cflags)
+GFX_CFLAGS	:= $(shell pkg-config SDL_gfx --cflags)
+
+TTF_LIBS	:= $(shell pkg-config SDL_ttf --libs)
+IMAGE_LIBS	:= $(shell pkg-config SDL_image --libs)
+MIXER_LIBS	:= $(shell pkg-config SDL_mixer --libs)
+NET_LIBS	:= $(shell pkg-config SDL_net --libs)
+GFX_LIBS	:= $(shell pkg-config SDL_gfx --libs)
+PNG_LIBS	:= $(shell pkg-config libpng --libs)
+
+ENGINE_CFLAGS	:= $(SDL_CFLAGS) $(TTF_CFLAGS) $(IMAGE_CFLAGS) $(MIXER_CFLAGS) $(GFX_CFLAGS) -DSWE_SDL12
+ENGINE_LIBS	:= $(SDL_LIBS) $(TTF_LIBS) $(IMAGE_LIBS) $(MIXER_LIBS) $(GFX_LIBS) $(PNG_LIBS)

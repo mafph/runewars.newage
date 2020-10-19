@@ -1,0 +1,81 @@
+refsheet.txt
+
+The Isle of Four Winds: Rune War
+Copyright 1997 Arcanium Productions.
+All Rights Reserved.
+http://www.arcanium.com
+
+This document contains a quick reference guide to help you play
+The Isle of Four Winds: Rune War Demo, Version 1.2
+
+Hotkeys and Functions Reference Sheet
+
+Press ESC at any time to return to the Main Menu.
+
+MahJong Phase Hotkeys:
+
+i:      Will toggle the information screen on or off. (Rune War only)
+v:      Will toggle the map on and off. (Rune War only)
+s:      Will toggle the spell casting box on and off. (Rune War only)
+p:      Will pong the current discarded rune.
+c:      Will chow the current discarded rune.
+k:      Will kong the current discarded rune or a foursome in your hand.
+g:      Will call game and claim victory assuming you have the possibility to win.
+        pause: Will pause the game.(functional in any phase)
+alt+tab:Will pause and minimize the game.(functional in any phase)
+arrows: 1/Using thaese keys on your turn will cycle the cursor through your
+        rune hand.
+        2/Using these keys when chowing a discard will cycle through the
+        chowing options in your hand, assuming you have multiple choices.
+        You must select the first rune of the sequence you wish to meld.
+space:  Will pass on the current discard, and bypass the timer.
+pause:  Brings up the pause screen.
+
+Scoring Screen Hotkeys:
+
+backspace: Press backspace to see the MahJong screen as it was when 
+	     game was called.
+ENTER or left-click:     Start next phase.
+
+
+Map Phase Functions: (Rune War only)
+
+view:   Right click on any territory or creature and its information will
+        appear in the information box at the far right side of the map.
+        Right clicking on a flag that is situated at the front of any player's
+        army line will display the wizard controlling that clan.
+toggle move:    When a creature is able to move it is outlined by a green
+        cursor.  You may toggle this on or off by left clicking on the
+        creature.  This will allow you to move creatures that sit in the same
+        army line to different destinations. If you wish to move the entire
+        army line then each creature's movement cursor must be active.
+movement:       A creature or creatures in the same army line outlined by a
+        green movement cursor may be moved.  This is done by left clicking
+        and holding on the territory the creature or creatures are contained
+        in, then dragging and releasing the mouse when at the desired
+        destination.   Note: you may only move into an adjacent territory.
+        Therefore creatures with two movement must repeat the above process.
+swap:   Left click and hold on the desired target, then drag on top of
+        creature you wish to swap positions with and release the mouse button.
+        This is to organize the order of your army within a territory.
+dismiss:        Left click on the dismiss button located at the bottom-right
+        corner of the map screen to activate the dismiss function.  Select a
+        target to dismiss and double left click on it.  It will be removed
+        from your forces.  If you decide this is a mistake, simply left click
+        on the undo button and that creature will return.  Note: this will
+        also undo all that you have done that turn.
+undo:   Left click on this button to reset the map phase of that turn.  All
+        movement and land claims done on this turn will be undone, and you
+        can do them over.
+        Note: this will not reset the timer.
+gate:   Gate is a power unique to Carol the Great.  It functions as follows:
+        Carol can teleport herself and or units in her territory to any
+        friendly territory containing a summoning circle including the tower
+        territory.   To move the entire line simply left click and hold,
+        making sure the green movement cursors are active, then move the
+        cursor to the desired destination, remembering it must contain a
+        friendly summoning circle, and release.   You may select a creature
+        from an army line to gate by toggling their movement cursor on and
+        off. 
+        Note: Carol does not have to move herself, and gating a creature
+        requires one movement point for that creature.
