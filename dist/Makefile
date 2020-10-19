@@ -8,7 +8,7 @@ else
 SDLVER := ver20
 endif
 
-LIBSWEDIR	:= ../../../../engine
+LIBSWEDIR       := ../engine
 LIBENGINE	:= $(LIBSWEDIR)/libswe.a
 CFLAGS		:= $(CFLAGS) -I$(LIBSWEDIR)
 
