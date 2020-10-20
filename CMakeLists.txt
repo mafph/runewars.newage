@@ -2,11 +2,12 @@ cmake_minimum_required(VERSION 3.14)
 
 project(RuneWarsNA VERSION 20201010.1)
 
-add_subdirectory(engine)
-
 set(SWE_WITH_JSON ON CACHE BOOL "enable json" FORCE)
 set(SWE_WITH_LUA OFF CACHE BOOL "disable lua" FORCE)
 set(SWE_EXAMPLES OFF CACHE BOOL "disable examples" FORCE)
+set(SWE_DISABLE_TERMGUI OFF CACHE BOOL "disable build termwin_gui" FORCE)
+
+add_subdirectory(engine)
 
 include(engine/libswe.cmake)
 
