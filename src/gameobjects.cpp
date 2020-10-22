@@ -3012,11 +3012,24 @@ bool RemotePlayer::mahjongApplySpell(const Spell & spell)
 	//
         case Spell::RandomDiscard:
         case Spell::ScryRunes:
-        case Spell::Silence:
 	//
         case Spell::ManaFog:
 	    affected.insert(AffectedSpell(spell));
-            break;
+            return true;
+
+        case Spell::Silence:
+        {
+            // check telepath
+            const AvatarInfo & avaInfo = GameData::avatarInfo(avatar);
+            if(avaInfo.ability() == Ability::Telepath)
+            {
+                DEBUG("ability Telepath found, silence skipping...");
+                return false;
+            }
+
+	    affected.insert(AffectedSpell(spell));
+            return true;
+        }
 
         default: ERROR("unknown action" << ", " << "spell: " << spell.toString()); break;
     }
