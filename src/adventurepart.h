@@ -217,6 +217,19 @@ public:
     const Land &	fromLand(void) const { return land; }
 };
 
+#ifdef BUILD_DEBUG
+class DebugConsole : public CommandConsole
+{
+protected:
+    bool                actionCommand(const std::string &) override;
+
+public:
+    DebugConsole(const Size & gfxsz, const FontRender & frs, Window & win) : CommandConsole(gfxsz, frs, win)
+    {
+    }
+};
+#endif
+
 class AdventurePartScreen : public MapScreenBase
 {
     const Avatar	myAvatar;
@@ -234,6 +247,15 @@ class AdventurePartScreen : public MapScreenBase
 
     ActionList          actions;
     TickTrigger		tt;
+
+#ifdef BUILD_DEBUG
+    std::unique_ptr<DebugConsole> console;
+    Land                debugLand;
+
+    bool                actionDebugCommandLands(void);
+    bool                actionDebugCommandLand(const std::string &);
+    bool                actionDebugCommandParty(void);
+#endif
 
     void		renderLabel(void) override;
     bool		isAdventureMode(void) const override { return true; }
@@ -254,9 +276,14 @@ class AdventurePartScreen : public MapScreenBase
 protected:
     bool		userEvent(int, void*) override;
     void		tickEvent(u32) override;
+    bool                keyPressEvent(const KeySym &) override;
 
 public:
     AdventurePartScreen(const Avatar &);
+
+#ifdef BUILD_DEBUG
+    bool                actionDebugCommand(const std::string &);
+#endif
 };
 
 #endif

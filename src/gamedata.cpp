@@ -377,6 +377,17 @@ const JsonObject & GameData::jsonGUI(void)
     return stateGUI;
 }
 
+void GameData::setGamePart(int v)
+{
+    gamePart = v;
+
+    if(v == Menu::AdventurePart)
+    {
+	for(auto & player : gamers)
+            player.initAdventurePart();
+    }
+}
+
 int GameData::loadedGamePart(void)
 {
     return gamePart;
@@ -408,8 +419,8 @@ JsonObject GameData::toJsonObject(const JsonObject & gui)
     jo.addArray("players", gamers.toJsonArray());
 
     JsonArray ja;
-    for(auto it = battleHistory.begin(); it != battleHistory.end(); ++it)
-	ja.addObject((*it).toJsonObject());
+    for(auto & legend : battleHistory)
+	ja.addObject(legend.toJsonObject());
     jo.addArray("history", ja);
 
     jo.addObject("gui", gui);
@@ -446,7 +457,7 @@ bool GameData::fromJsonObject(const JsonObject & jo)
     jo2 = jo.getObject("myperson");
     if(! jo2)
     {
-	ERROR("json parse: " << "croupier");
+	ERROR("json parse: " << "myperson");
 	return false;
     }
     person = Person::fromJsonObject(*jo2);
@@ -527,6 +538,12 @@ LocalData GameData::toLocalData(const Avatar & ava)
 {
     LocalPlayer* lp = gamers.playerOfAvatar(ava);
 
+    if(! lp)
+    {
+        ERROR("player not found" << ", " << "avatar: " << ava.toString());
+        Engine::except(__FUNCTION__, "exit");
+    }
+
     const Wind & wind = lp->wind;
     const AvatarInfo & avaInfo = avatarInfo(ava);
 
@@ -587,8 +604,8 @@ BattleArmy & GameData::getBattleArmy(const Clan & clan)
 
 bool GameData::findCreatureUnique(const Creature & cr)
 {
-    for(auto it = gamers.begin(); it != gamers.end(); ++it)
-	if((*it).army.findCreature(cr)) return true;
+    for(auto & player : gamers)
+	if(player.army.findCreature(cr)) return true;
 
     return false;
 }
@@ -597,10 +614,10 @@ BattleParty* GameData::getBattleParty(int unit)
 {
     if(0 < unit)
     {
-	for(auto itg = gamers.begin(); itg != gamers.end(); ++itg)
+	for(auto & player : gamers)
 	{
-	    for(auto itp = (*itg).army.begin(); itp != (*itg).army.end(); ++itp)
-		if((*itp).findBattleUnitConst(unit)) return & (*itp);
+	    for(auto & party : player.army)
+		if(party.findBattleUnitConst(unit)) return & party;
 	}
     }
 
@@ -614,9 +631,9 @@ BattleCreature* GameData::getBattleCreature(int unit)
 {
     if(0 < unit)
     {
-	for(auto it = gamers.begin(); it != gamers.end(); ++it)
+	for(auto & player : gamers)
 	{
-	    auto bcr = (*it).army.findBattleUnit(unit);
+	    auto bcr = player.army.findBattleUnit(unit);
 	    if(bcr) return bcr;
 	}
     }
@@ -629,8 +646,8 @@ BattleCreature* GameData::getBattleCreature(int unit)
 
 RemotePlayer* GameData::getBattleArmyOwner(const BattleArmy & army)
 {
-    for(auto it = gamers.begin(); it != gamers.end(); ++it)
-	if(& (*it).army == & army) return & (*it);
+    for(auto & player : gamers)
+	if(& player.army == & army) return & player;
 
     ERROR("battle army not found");
     Engine::except(__FUNCTION__, "exit");
@@ -1123,7 +1140,7 @@ bool GameData::clientSummonCreature(const Avatar & avatar, const ClientMessage &
 
     const LandInfo & landInfo = GameData::landInfo(land);
 
-    if(! landInfo.stat.power || (Land::TowerOf4Winds != land() && landInfo.clan != client.clan))
+    if(! landInfo.stat.power || (! land.isTowerWinds() && landInfo.clan != client.clan))
     {
 	ERROR("land incorrect: " << land.toString());
 	return false;
@@ -1504,7 +1521,7 @@ bool GameData::adventureBattleAction(const Avatar & avatar, ActionList & actions
 	const Land & land = (*it).land();
 
 	// skip public zone
-	if(land() == Land::TowerOf4Winds) continue;
+	if(land.isTowerWinds()) continue;
 
 	LandInfo & landInfo = landsInfo[land()];
 	LocalPlayer & other = playerOfClan(landInfo.clan);

@@ -32,7 +32,7 @@
 enum { LandPolygonClickLeft = 1111, LandPolygonClickRight, LandPolygonFocus, LandPolygonFlagAnimationReInit, LandPolygonCombatStatus, LandPolygonCombatStatusReset,
 	ClanIconClickLeft, ClanIconClickRight, CreatureIconClickLeft, CreatureIconClickRight, MapScreenClose,
 	MapScreenSelectLand,
-	AdventureTurnPlayer, AdventureTurnMoveStart, AdventureTurnMoveStop, AdventureTurnCreatureSelect };
+	AdventureTurnPlayer, AdventureTurnMoveStart, AdventureTurnMoveStop, AdventureTurnCreatureSelect, AdventureTurnShowConsole };
 
 LandPolygon::LandPolygon(const LandInfo & info, const JsonObject & jo, Window & win) : WindowToolTipArea(& win), landInfo(info), owner(info.clan), poly(info.points)
 {
@@ -51,7 +51,7 @@ LandPolygon::LandPolygon(const LandInfo & info, const JsonObject & jo, Window & 
     setVisible(false);
 
     // add animations
-    if(info.id() != Land::TowerOf4Winds)
+    if(! info.id.isTowerWinds())
     {
 	// power state
 	if(info.stat.power)
@@ -115,7 +115,7 @@ bool LandPolygon::userEvent(int act, void* data)
     }
 
     if(act == LandPolygonFlagAnimationReInit &&
-	landInfo.id() != Land::TowerOf4Winds && (!data || data == & landInfo))
+	! landInfo.id.isTowerWinds() && (!data || data == & landInfo))
     {
 	auto win = static_cast<const MapScreenBase*>(parent());
 	if(! win) return false;
@@ -183,7 +183,7 @@ void LandPolygon::renderWindow(void)
 
     if(win)
     {
-	if(landInfo.id() != Land::TowerOf4Winds)
+	if(! landInfo.id.isTowerWinds())
 	{
 	    const ClanInfo & clanInfo = GameData::clanInfo(owner);
 	    const Texture & textureTown = GameTheme::texture(clanInfo.town);
@@ -449,7 +449,7 @@ bool MapScreenBase::isAllowMoveFlag(const LandInfo & landInfo) const
 {
     const LocalPlayer & player = ld.myPlayer();
 
-    return (landInfo.id() == Land::TowerOf4Winds || landInfo.clan == player.clan) && landInfo.id == selectedLand &&
+    return (landInfo.id.isTowerWinds() || landInfo.clan == player.clan) && landInfo.id == selectedLand &&
         0 < player.army.partySelected(landInfo.id).size();
 }
 
@@ -617,7 +617,7 @@ bool MapScreenBase::userEvent(int event, void* data)
 		    selectedClan.reset();
 		    affectedSpells.setVisible(false);
 
-		    if(landInfo->id() == Land::TowerOf4Winds)
+		    if(landInfo->id.isTowerWinds())
 		    {
 			Clan clan1 = Clan(GameData::myPerson().clan);
 			Clan clan2 = clan1.next();
@@ -643,7 +643,7 @@ bool MapScreenBase::userEvent(int event, void* data)
 	// click clan icon
 	case ClanIconClickLeft:
 	case ClanIconClickRight:
-	    if(selectedLand() == Land::TowerOf4Winds)
+	    if(selectedLand.isTowerWinds())
 	    {
 		Clan clan1, clan2;
 		selectedCreature.reset();
@@ -781,7 +781,7 @@ bool ShowSummonCreatureDialog::landAllowJoin(const LandInfo & info, const LocalP
 {
     if(info.stat.power)
     {
-        if(info.id() == Land::TowerOf4Winds)
+        if(info.id.isTowerWinds())
 	    return true;
 	else
 	if(info.clan == player.clan)
@@ -1004,6 +1004,10 @@ AdventurePartScreen::AdventurePartScreen(const Avatar & ava) : MapScreenBase(Gam
     }
 
     selectedClan.reset();
+
+#ifdef BUILD_DEBUG
+    debugLand = Land::TowerOf4Winds;
+#endif
 }
 
 void AdventurePartScreen::renderLabel(void)
@@ -1043,7 +1047,17 @@ bool AdventurePartScreen::userEvent(int act, void* data)
 
     if(ld.yourTurn())
     {
-	if(act == AdventureTurnCreatureSelect)
+#ifdef BUILD_DEBUG
+	if(act == AdventureTurnShowConsole)
+	{
+            if(! console)
+                console.reset(new DebugConsole(Size(width(), 200), GameTheme::fontRender("console"), *this));
+            console->setVisible(true);
+            return true;
+	}
+        else
+#endif
+        if(act == AdventureTurnCreatureSelect)
 	{
 	    auto bcr = data ? static_cast<BattleCreature*>(data) : nullptr;
 	    if(bcr)
@@ -1346,3 +1360,179 @@ bool AdventurePartScreen::actionAdventureEnd(const ActionMessage & v)
 
     return true;
 }
+
+bool AdventurePartScreen::keyPressEvent(const KeySym & ks)
+{
+#ifdef BUILD_DEBUG
+    if(ks.keycode() == SWE::Key::BACKQUOTE)
+    {
+        pushEventAction(AdventureTurnShowConsole, this, nullptr);
+        return true;
+    }
+#endif
+
+    return MapScreenBase::keyPressEvent(ks);
+}
+
+#ifdef BUILD_DEBUG
+#include <sstream>
+SWE::StringList commandSplitSpace(std::string str)
+{
+    std::istringstream is(str);
+    SWE::StringList res;
+
+    std::copy(std::istream_iterator<std::string>(is),
+            std::istream_iterator<std::string>(), std::back_inserter(res));
+
+    return res;
+}
+
+bool AdventurePartScreen::actionDebugCommandLands(void)
+{
+    std::string line;
+
+    for(auto id : lands_all)
+    {
+        auto name = Land(id).toString();
+        if(line.size() + name.size() + 4 > console->cols() - 2)
+        {
+            line.append(", ");
+            console->contentLinesAppend(line);
+            line.assign(name);
+        }
+        else
+        if(line.size())
+            line.append(", ").append(name);
+        else
+            line.assign(name);
+    }
+
+    console->contentLinesAppend(line);
+    return true;
+}
+
+bool AdventurePartScreen::actionDebugCommandLand(const std::string & argv)
+{
+    StringList res;
+
+    for(auto id : lands_all)
+    {
+        auto name = Land(id).toString();
+        if(0 == name.compare(0, argv.size(), argv))
+            res.push_back(name);
+    }
+
+    if(res.empty())
+    {
+        console->contentLinesAppend(SWE::StringFormat("error: unknown land id: %1").arg(argv));
+        return false;
+    }
+    else
+    if(1 == res.size())
+    {
+        debugLand = Land(res.front());
+        console->contentLinesAppend(SWE::StringFormat("land %1").arg(res.front()));
+    }
+    else
+    {
+        console->contentLinesAppend(SWE::StringFormat("possible values: %1").arg(res.join(", ")));
+        return false;
+    }
+
+    return true;
+}
+
+bool AdventurePartScreen::actionDebugCommandParty(void)
+{
+    if(debugLand.isTowerWinds())
+    {
+        for(auto clan : clans_all)
+        {
+            BattleArmy & army = GameData::getBattleArmy(clan);
+            const BattleParty* party = army.findPartyConst(debugLand);
+
+            if(party)
+            {
+                auto list = console->frs()->splitStringWidth(party->toString(), console->sym2gfx(TermSize(console->cols() - 2, 1)).w);
+                for(auto & str : list)
+                    console->contentLinesAppend(str);
+            }
+        }
+    }
+    else
+    {
+        const LandInfo & land = GameData::landInfo(debugLand);
+        BattleArmy & army = GameData::getBattleArmy(land.clan);
+        const BattleParty* party = army.findPartyConst(debugLand);
+
+        if(party)
+        {
+            auto list = console->frs()->splitStringWidth(party->toString(), console->sym2gfx(TermSize(console->cols() - 2, 1)).w);
+            for(auto & str : list)
+                console->contentLinesAppend(str);
+        }
+        else
+        {
+            console->contentLinesAppend("party not found");
+        }
+    }
+
+    return true;
+}
+
+bool AdventurePartScreen::actionDebugCommand(const std::string & str)
+{
+    auto words = commandSplitSpace(str);
+
+    if(! words.empty())
+    {
+        auto & cmd = words.front();
+
+        if(cmd == "help")
+        {
+            console->contentLinesAppend("lands - show all lands");
+            console->contentLinesAppend("land <name> - set/show current land");
+            return true;
+        }
+        else
+        if(cmd == "lands")
+        {
+            console->contentLinesAppend(str);
+            return actionDebugCommandLands();
+        }
+        else
+        if(cmd == "land")
+        {
+            if(2 == words.size())
+            {
+                return actionDebugCommandLand(words.back());
+            }
+            else
+            {
+                console->contentLinesAppend(SWE::StringFormat("current land: %1").arg(debugLand.toString()));
+                return true;
+            }
+        }
+        else
+        if(cmd == "party")
+        {
+            return actionDebugCommandParty();
+        }
+        else
+        {
+            console->contentLinesAppend(SWE::StringFormat("%1: command not found").arg(cmd));
+        }
+    }
+
+    return false;
+}
+
+/* DebugConsole */
+bool DebugConsole::actionCommand(const std::string & cmd)
+{
+    auto win = dynamic_cast<AdventurePartScreen*>(parent());
+    if(win) win->actionDebugCommand(cmd);
+
+    return CommandConsole::actionCommand(cmd);
+}
+#endif

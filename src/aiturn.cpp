@@ -451,7 +451,7 @@ Lands AI::findTargetsFor(const BaseStat & bs, const Clan & clan)
     Lands res;
 
     for(auto & land : Lands::enemyAroundOnly(clan))
-	if(land() != Land::TowerOf4Winds)
+	if(! land.isTowerWinds())
     {
 	const LandInfo & landInfo = GameData::landInfo(land);
 	BaseStat stat = landInfo.stat;

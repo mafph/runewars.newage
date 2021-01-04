@@ -7,6 +7,8 @@ set(SWE_WITH_LUA OFF CACHE BOOL "disable lua" FORCE)
 set(SWE_EXAMPLES OFF CACHE BOOL "disable examples" FORCE)
 set(SWE_DISABLE_TERMGUI OFF CACHE BOOL "enable termwin_gui" FORCE)
 
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DBUILD_DEBUG")
+
 add_subdirectory(engine)
 
 include(engine/libswe.cmake)

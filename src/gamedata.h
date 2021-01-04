@@ -259,13 +259,14 @@ namespace GameData
     bool			isGameOver(void);
 
     int				loadedGamePart(void);
+    void                        setGamePart(int);
     int				nextBattleUnitId(void);
 
     const JsonObject &		jsonGUI(void);
 
     bool			findCreatureUnique(const Creature &);
-    BattleParty*		getBattleParty(int);
-    BattleCreature*		getBattleCreature(int);
+    BattleParty*		getBattleParty(int unit);
+    BattleCreature*		getBattleCreature(int unit);
     RemotePlayer*		getBattleArmyOwner(const BattleArmy &);
     BattleArmy &		getBattleArmy(const Clan &);
     std::list<BattleLegend>	getBattleHistoryFor(const Avatar &);

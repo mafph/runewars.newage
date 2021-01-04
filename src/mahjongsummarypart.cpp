@@ -63,6 +63,10 @@ MahjongSummaryPartScreen::MahjongSummaryPartScreen() : JsonWindow("screen_mahjon
     const Wind & dealWind = ld.winResult.dealWind;
     const Wind & roundWind = ld.winResult.roundWind;
 
+    DEBUG("wind win: " << winWind.toString());
+    DEBUG("wind deal: " << dealWind.toString());
+    DEBUG("wind round: " << roundWind.toString());
+
     const Avatar & winAvatar = ld.playerOfWind(winWind).avatar;
     const Avatar & dealAvatar = ld.playerOfWind(dealWind).avatar;
 

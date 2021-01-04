@@ -236,6 +236,18 @@ bool RuneWarsClient::exec(void)
 	else
 	if(GameData::loadGame(savefile))
 	{
+            selectedPerson = GameData::myPerson();
+
+	    switch(part)
+	    {
+		case 1:  GameData::setGamePart(Menu::MahjongPart); break;
+		case 2:  GameData::setGamePart(Menu::MahjongSummaryPart); break;
+		case 3:  GameData::setGamePart(Menu::AdventurePart); break;
+		case 4:  GameData::setGamePart(Menu::BattleSummaryPart); break;
+		case 5:  GameData::setGamePart(Menu::GameSummaryPart); break;
+		default: break;
+	    }
+
 	    switch(part)
 	    {
 		case 1:  menu = MahjongPartScreen().exec(); break;

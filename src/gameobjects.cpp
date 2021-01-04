@@ -523,6 +523,11 @@ std::string Land::toString(void) const
     return it != landsId.end() ? *it : "none";
 }
 
+bool Land::isTowerWinds(void) const
+{
+    return id() == TowerOf4Winds;
+}
+
 bool Land::isPower(void) const
 {
     if(isValid())
@@ -2432,7 +2437,7 @@ void BattleArmy::applyInvisibility(void)
         const LandInfo & positionInfo = GameData::landInfo(party.land());
 
 	// skip if position: TowerOf4Winds
-	if(positionInfo.id() == Land::TowerOf4Winds)
+	if(positionInfo.id.isTowerWinds())
 	    remove = false;
 	else
 	{

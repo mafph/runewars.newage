@@ -385,6 +385,7 @@ struct Land : Enum
     type_t			baseType(void) const override { return TypeLand; }
 
     bool			isPower(void) const;
+    bool                        isTowerWinds(void) const;
 };
 
 struct Lands : std::vector<Land>
