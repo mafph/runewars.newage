@@ -250,7 +250,7 @@ void ButtonInfo::setJsonInfo(const JsonObject* jo)
 
         if(jo->hasKey("cursors"))
         {
-            StringList cursors = jo->getStringList("cursors");
+            StringList cursors = jo->getStdList<std::string>("cursors");
             if(0 < cursors.size()) cursorFocusTheme = cursors.front();
             if(1 < cursors.size()) cursorPressTheme = cursors.back();
         }
@@ -432,7 +432,7 @@ JsonWindow::JsonWindow(const std::string & res, Window* win) : Window(win), defa
 	if(jv)
 	{
     	    const JsonArray* ja = static_cast<const JsonArray*>(jv);
-	    for(int it = 0; it < ja->count(); ++it)
+	    for(int it = 0; it < ja->size(); ++it)
 	    {
 		const JsonObject* jobut = ja->getObject(it);
 		if(jobut)
@@ -449,7 +449,7 @@ JsonWindow::JsonWindow(const std::string & res, Window* win) : Window(win), defa
 	if(Settings::music() && jobject.hasKey("music"))
 	{
 #ifndef SWE_DISABLE_AUDIO
-	    tracks = jobject.getStringList("music");
+	    tracks = jobject.getStdList<std::string>("music");
             auto mus = Tools::random_n(tracks.begin(), tracks.end());
 
 	    if(mus != tracks.end())

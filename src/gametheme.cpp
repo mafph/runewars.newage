@@ -384,7 +384,7 @@ const JsonValue & operator>> (const JsonValue & jv, FontInfo & st)
             st.blend = RenderShaded;
 
         st.style = StyleNormal;
-        for(auto & val : jo->getStringList("style"))
+        for(auto & val : jo->getStdList<std::string>("style"))
         {
             auto lower = String::toLower(val);
             if(lower == "bold")
@@ -781,7 +781,7 @@ JsonButton GameTheme::jsonButton(const JsonValue & jv)
 
         if(jo->hasKey("cursors"))
         {
-            StringList cursors = jo->getStringList("cursors");
+            StringList cursors = jo->getStdList<std::string>("cursors");
             if(0 < cursors.size()) info.cursorFocusTheme = cursors.front();
             if(1 < cursors.size()) info.cursorPressTheme = cursors.back();
         }
@@ -1088,9 +1088,9 @@ const JsonValue & operator>> (const JsonValue & jv, CreatureInfo & st)
 	st.fly = jo->getBoolean("fly");
 	st.cost = jo->getInteger("cost");
 	st.description = _(jo->getString("description"));
-	st.specials = Specials(jo->getStringList("specials"));
+	st.specials = Specials(jo->getStdList<std::string>("specials"));
 
-	StringList stoneList = jo->getStringList("stones");
+	StringList stoneList = jo->getStdList<std::string>("stones");
     	std::transform(stoneList.begin(), stoneList.end(), stoneList.begin(),
 					[](const std::string & str){ return String::trimmed(str); });
     	st.stones.assign(stoneList.begin(), stoneList.end());
@@ -1152,7 +1152,7 @@ const JsonValue & operator>> (const JsonValue & jv, SpellInfo & st)
 	st.sound =jo->getString("sound");
 	st.description = _(jo->getString("description"));
 
-	StringList stoneList = jo->getStringList("stones");
+	StringList stoneList = jo->getStdList<std::string>("stones");
     	std::transform(stoneList.begin(), stoneList.end(), stoneList.begin(), 
 				    [](const std::string & str){ return String::trimmed(str); });
     	st.stones.assign(stoneList.begin(), stoneList.end());
@@ -1177,13 +1177,13 @@ const JsonValue & operator>> (const JsonValue & jv, AvatarInfo & st)
 	if(jo->hasKey("ability")) st.ability = Ability(jo->getString("ability"));
 
 	// clans
-	StringList clanList = jo->getStringList("clans");
+	StringList clanList = jo->getStdList<std::string>("clans");
     	std::transform(clanList.begin(), clanList.end(), clanList.begin(), 
 				    [](const std::string & str){ return String::trimmed(str); });
     	st.clans.assign(clanList.begin(), clanList.end());
 
 	// spells
-	StringList spellList = jo->getStringList("spells");
+	StringList spellList = jo->getStdList<std::string>("spells");
     	std::transform(spellList.begin(), spellList.end(), spellList.begin(), 
 				    [](const std::string & str){ return String::trimmed(str); });
     	st.spells.assign(spellList.begin(), spellList.end());
@@ -1192,7 +1192,7 @@ const JsonValue & operator>> (const JsonValue & jv, AvatarInfo & st)
 	st.spells.push_back(Spell("hell_blast"));
 
 	// creatures
-	StringList creatureList = jo->getStringList("creatures");
+	StringList creatureList = jo->getStdList<std::string>("creatures");
     	std::transform(creatureList.begin(), creatureList.end(), creatureList.begin(), 
 				    [](const std::string & str){ return String::trimmed(str); });
     	st.creatures.assign(creatureList.begin(), creatureList.end());
@@ -1218,7 +1218,7 @@ const JsonValue & operator>> (const JsonValue & jv, LandInfo & st)
 	if(ja) st.points = JsonUnpack::points(*ja);
 
 	st.borders.clear();
-	StringList landList = jo->getStringList("borders");
+	StringList landList = jo->getStdList<std::string>("borders");
 
     	for(auto it = landList.begin(); it != landList.end(); ++it)
         	st.borders.push_back(Land(String::trimmed(*it)));

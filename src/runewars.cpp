@@ -158,7 +158,7 @@ bool RuneWarsClient::translationInit(void)
 {
     Translation::setStripContext('|');
 
-    std::string lang = StringFormat("%1.mo").arg(Systems::messageLocale(1));
+    std::string lang = StringFormat("%1.mo").arg(Settings::language());
     std::string path;
 
     if(Translation::bindDomain(domain(), GameTheme::readResource(lang, &path)))

@@ -31,6 +31,7 @@ namespace
     bool gameAccel = true;
     bool gameFullscreen = false;
     bool guardianRulesSound = true;
+    std::string lang;
 }
 
 bool Settings::read(void)
@@ -45,9 +46,15 @@ bool Settings::read(void)
 	gameAccel = jo.getBoolean("display:accel", true);
 
 	guardianRulesSound = jo.getBoolean("sound:guardianrules", true);
+	lang = jo.getString("language", Systems::messageLocale(1));
     }
 
     return true;
+}
+
+std::string Settings::language(void)
+{
+    return lang;
 }
 
 bool Settings::fullscreen(void)

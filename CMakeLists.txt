@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.14)
 
 project(RuneWarsNA VERSION 20201010.1)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
 set(SWE_WITH_JSON ON CACHE BOOL "enable json" FORCE)
 set(SWE_WITH_LUA OFF CACHE BOOL "disable lua" FORCE)
 set(SWE_EXAMPLES OFF CACHE BOOL "disable examples" FORCE)

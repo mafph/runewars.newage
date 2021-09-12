@@ -497,7 +497,7 @@ bool GameData::fromJsonObject(const JsonObject & jo)
 	return false;
     }
 
-    for(int it = 0; it < ja2->count(); ++it)
+    for(int it = 0; it < ja2->size(); ++it)
     {
 	jo2 = ja2->getObject(it);
 	if(jo2) battleHistory.push_back(BattleLegend::fromJsonObject(*jo2));

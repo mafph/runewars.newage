@@ -116,7 +116,7 @@ struct Ability : Enum
     Ability(ability_t v = None) : Enum(v) {}
     Ability(const std::string &);
 
-    std::string			toString(void) const;
+    std::string			toString(void) const override;
     type_t			baseType(void) const override { return TypeAbility; }
 
 };
@@ -136,8 +136,8 @@ struct Speciality : Enum
 
     std::string			toString(void) const override;
     type_t			baseType(void) const override { return TypeSpeciality; }
+    int				index(void) const override;
     Spell			toSpell(void) const;
-    int				index(void) const;
 
     static Speciality		fromIndex(int);
 };

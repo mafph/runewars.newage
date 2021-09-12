@@ -869,7 +869,7 @@ bool MahjongPartScreen::fromJsonObject(const JsonObject & jo)
 	iconAffectedScry.setVisible(jo.getBoolean("affected:scry", false));
 
 	playerReady = jo.getBoolean("playerReady", false);
-	gameLogs = jo.getStringList("gameLogs");
+	gameLogs = jo.getStdList<std::string>("gameLogs");
 	return true;
     }
     else

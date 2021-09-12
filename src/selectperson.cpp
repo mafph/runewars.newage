@@ -123,7 +123,7 @@ SelectPersonScreen::SelectPersonScreen() : JsonWindow("screen_selectperson.json"
     ja = jobject.getArray("area:clans");
     if(ja)
     {
-	for(int ii = 0; ii < ja->count(); ++ii)
+	for(int ii = 0; ii < ja->size(); ++ii)
 	{
 	    const JsonObject* jo = ja->getObject(ii);
     	    if(jo)
@@ -138,7 +138,7 @@ SelectPersonScreen::SelectPersonScreen() : JsonWindow("screen_selectperson.json"
     ja = jobject.getArray("area:avatars");
     if(ja)
     {
-	for(int ii = 0; ii < ja->count(); ++ii)
+	for(int ii = 0; ii < ja->size(); ++ii)
 	{
 	    const JsonObject* jo = ja->getObject(ii);
     	    if(jo)

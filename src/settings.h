@@ -34,6 +34,7 @@ namespace Settings
     std::string		shareDir(void);
     std::string		fileSave(const std::string &);
     std::string		fileSaveGame(void);
+    std::string		language(void);
 
     bool		read(void);
     bool		music(void);

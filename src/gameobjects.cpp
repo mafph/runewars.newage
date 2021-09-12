@@ -74,7 +74,7 @@ namespace GameData
         for(auto & id : _ids)
         {
             if(jo.isArray(id))
-                idsList[index] = jo.getStringList(id);
+                idsList[index] = jo.getStdList<std::string>(id);
             else
             {
                 ERROR("index.json incorrect: " << id);
@@ -937,8 +937,8 @@ JsonArray VecStones::toJsonArray(void) const
 
 VecStones VecStones::fromJsonArray(const JsonArray & ja)
 {
-    VecStones res; res.reserve(ja.count());
-    for(int it = 0; it < ja.count(); ++it)
+    VecStones res; res.reserve(ja.size());
+    for(int it = 0; it < ja.size(); ++it)
     {
         const JsonValue* jv = ja.getValue(it);
         if(jv) res.push_back(Stone(jv->getString()));
@@ -958,7 +958,7 @@ JsonArray Stones::toJsonArray(void) const
 Stones Stones::fromJsonArray(const JsonArray & ja)
 {
     Stones res;
-    for(int it = 0; it < ja.count(); ++it)
+    for(int it = 0; it < ja.size(); ++it)
     {
 	const JsonValue* jv = ja.getValue(it);
 	if(jv) res.push_back(Stone(jv->getString()));
@@ -1108,7 +1108,7 @@ JsonArray GameStones::toJsonArray(void) const
 GameStones GameStones::fromJsonArray(const JsonArray & ja)
 {
     GameStones res;
-    for(int it = 0; it < ja.count(); ++it)
+    for(int it = 0; it < ja.size(); ++it)
     {
 	const JsonObject* jo =ja.getObject(it);
 	if(jo) res.push_back(GameStone::fromJsonObject(*jo));
@@ -1641,7 +1641,7 @@ JsonArray AffectedSpells::toJsonArray(void) const
 AffectedSpells AffectedSpells::fromJsonArray(const JsonArray & ja)
 {
     AffectedSpells res;
-    for(int it = 0; it < ja.count(); ++it)
+    for(int it = 0; it < ja.size(); ++it)
     {
 	const JsonObject* jj = ja.getObject(it);
 	if(jj) res.push_back(AffectedSpell::fromJsonObject(*jj));
@@ -1710,7 +1710,7 @@ JsonArray BattleStrikes::toJsonArray(void) const
 BattleStrikes BattleStrikes::fromJsonArray(const JsonArray & ja)
 {
     BattleStrikes res;
-    for(int it = 0; it < ja.count(); ++it)
+    for(int it = 0; it < ja.size(); ++it)
     {
         const JsonObject* jo = ja.getObject(it);
         if(jo) res.push_back(BattleStrike::fromJsonObject(*jo));
@@ -1956,7 +1956,7 @@ JsonArray BattleTargets::toJsonArray(void) const
 BattleTargets BattleTargets::fromJsonArray(const JsonArray & ja)
 {
     BattleTargets res;
-    for(int it = 0; it < ja.count(); ++it)
+    for(int it = 0; it < ja.size(); ++it)
     {
 	int battleUnit = ja.getInteger(it);
 	res.push_back(GameData::getBattleCreature(battleUnit));
@@ -2064,9 +2064,9 @@ BattleParty BattleParty::fromJsonObject(const JsonObject & jo)
     const JsonArray* ja = jo.getArray("creatures");
     if(ja)
     {
-	res.resize(ja->count());
+	res.resize(ja->size());
 
-	for(int it = 0; it < ja->count(); ++it)
+	for(int it = 0; it < ja->size(); ++it)
 	{
 	    const JsonObject* jo = ja->getObject(it);
 	    if(jo && jo->isValid())
@@ -2320,7 +2320,7 @@ JsonArray BattleArmy::toJsonArray(void) const
 BattleArmy BattleArmy::fromJsonArray(const JsonArray & ja)
 {
     BattleArmy res;
-    for(int it = 0; it < ja.count(); ++it)
+    for(int it = 0; it < ja.size(); ++it)
     {
 	const JsonObject* jo = ja.getObject(it);
 	if(jo) res.push_back(BattleParty::fromJsonObject(*jo));
@@ -2766,7 +2766,7 @@ JsonArray WinRules::toJsonArray(void) const
 WinRules WinRules::fromJsonArray(const JsonArray & ja)
 {
     WinRules res;
-    for(int it = 0; it < ja.count(); ++it)
+    for(int it = 0; it < ja.size(); ++it)
     {
 	const JsonObject* jo = ja.getObject(it);
 	if(jo) res << WinRule::fromJsonObject(*jo);
@@ -3490,7 +3490,7 @@ JsonArray LocalPlayers::toJsonArray(void) const
 LocalPlayers LocalPlayers::fromJsonArray(const JsonArray & ja)
 {
     LocalPlayers res;
-    for(int it = 0; it < ja.count(); ++it)
+    for(int it = 0; it < ja.size(); ++it)
     {
 	const JsonObject* jo = ja.getObject(it);
 	if(jo) res.push_back(LocalPlayer::fromJsonObject(*jo));
