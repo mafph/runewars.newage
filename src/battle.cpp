@@ -21,6 +21,8 @@
  ***************************************************************************/
 
 #include "battle.h"
+#include <algorithm>
+#include <random>
 
 namespace Battle
 {
@@ -59,7 +61,7 @@ BattleStrikes Battle::rangersAttack(const BattleCreatures & rangers, BattleParty
     for(auto & bcr : rangers)
     {
 	BattleCreatures bcrs = enemy.toBattleCreatures(Specials() << Speciality::IgnoreMissiles, false);
-        std::random_shuffle(bcrs.begin(), bcrs.end());
+        std::shuffle(bcrs.begin(), bcrs.end(), std::default_random_engine());
 
 	auto tgt = bcrs.size() ? bcrs.front() : nullptr;
 	if(bcr && tgt) res << applyRangerAttack(*bcr, *tgt);
@@ -146,7 +148,7 @@ BattleStrikes Battle::meleeAttack(BattleUnit & skill, BattleParty & enemy)
     BattleStrikes res;
     BattleCreatures bcrs = enemy.toBattleCreatures();
 
-    std::random_shuffle(bcrs.begin(), bcrs.end());
+    std::shuffle(bcrs.begin(), bcrs.end(), std::default_random_engine());
     auto target = bcrs.size() ? bcrs.front() : nullptr;
 
     if(target && target->isAlive() && skill.isAlive())
@@ -183,7 +185,7 @@ BattleStrikes Battle::meleesAttack(BattleCreatures attackers, BattleParty & enem
     for(auto & bcr : attackers)
     {
 	BattleCreatures bcrs = enemy.toBattleCreatures();
-        std::random_shuffle(bcrs.begin(), bcrs.end());
+        std::shuffle(bcrs.begin(), bcrs.end(), std::default_random_engine());
 
 	auto tgt = bcrs.size() ? bcrs.front() : nullptr;
 	if(bcr && tgt)
@@ -227,7 +229,7 @@ BattleStrikes Battle::doAttackParty(BattleParty & attackers, BattleTown & town, 
     if(town.isRanger())
     {
 	BattleCreatures bcrs = attackers.toBattleCreatures(Specials() << Speciality::IgnoreMissiles, false);
-        std::random_shuffle(bcrs.begin(), bcrs.end());
+        std::shuffle(bcrs.begin(), bcrs.end(), std::default_random_engine());
 	auto target = bcrs.size() ? bcrs.front() : nullptr;
 
 	if(target)

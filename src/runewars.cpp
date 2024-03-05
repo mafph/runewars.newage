@@ -21,6 +21,7 @@
  ***************************************************************************/
 
 #include <clocale>
+#include <random>
 
 #include "gametheme.h"
 #include "settings.h"
@@ -192,7 +193,7 @@ Person fixedEmptyPerson(const Person & cur)
     if(! cur.avatar.isValid())
     {
         Avatars avatars = GameData::avatarsOfClan(cur.clan);
-        std::random_shuffle(avatars.begin(), avatars.end());
+        std::shuffle(avatars.begin(), avatars.end(), std::default_random_engine());
         return Person(avatars.front(), cur.clan, cur.wind);
     }
 

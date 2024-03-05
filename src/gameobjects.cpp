@@ -26,6 +26,7 @@
 #include <sstream>
 #include <forward_list>
 #include <algorithm>
+#include <random>
 
 #include "gamedata.h"
 
@@ -1314,7 +1315,10 @@ bool GameStones::allowCast(const Stones & rules) const
 	return true;
 
     GameStones stones = *this;
-    stones.resize(std::distance(stones.begin(), std::remove_if(stones.begin(), stones.end(), std::ptr_fun(&GameStone::isCasted))));
+    stones.erase(std::remove_if(stones.begin(), stones.end(),
+        [](const GameStone& stone) { return stone.isCasted(); }),
+        stones.end());
+    //stones.resize(std::distance(stones.begin(), std::remove_if(stones.begin(), stones.end(), std::ptr_fun(&GameStone::isCasted))));
 
     Stones uniq = rules.toUnique();
 
@@ -2793,16 +2797,16 @@ void CroupierSet::reset(void)
     bank.clear();
 
     bank.insert(bank.end(), stones.begin(), stones.end());
-    std::random_shuffle(bank.begin(), bank.end());
+    std::shuffle(bank.begin(), bank.end(), std::default_random_engine());
 
     bank.insert(bank.end(), stones.begin(), stones.end());
-    std::random_shuffle(bank.begin(), bank.end());
+    std::shuffle(bank.begin(), bank.end(), std::default_random_engine());
 
     bank.insert(bank.end(), stones.begin(), stones.end());
-    std::random_shuffle(bank.begin(), bank.end());
+    std::shuffle(bank.begin(), bank.end(), std::default_random_engine());
 
     bank.insert(bank.end(), stones.begin(), stones.end());
-    std::random_shuffle(bank.begin(), bank.end());
+    std::shuffle(bank.begin(), bank.end(), std::default_random_engine());
 
     trash.clear();
     last = 0;
@@ -2936,7 +2940,7 @@ Persons::Persons(const Person & person)
 			[&](const Person & pers){ return pers.avatar == ava; });
 	});
 	avatars.erase(it, avatars.end());
-        std::random_shuffle(avatars.begin(), avatars.end());
+        std::shuffle(avatars.begin(), avatars.end(), std::default_random_engine());
 
 	push_back(Person(avatars.front(), clans.back(), Wind()));
 	clans.pop_back();
@@ -2948,7 +2952,7 @@ Persons::Persons(const Person & person)
 	for(auto & pers : *this)
 	    pers.setAI(true);
 
-	std::random_shuffle(begin(), end());
+	std::shuffle(begin(), end(), std::default_random_engine());
 
 	at(0).wind = Wind(Wind::East);
 	at(1).wind = Wind(Wind::South);

@@ -118,7 +118,8 @@ bool GameTheme::loadResources(const Application & app)
     for(auto & dir: shareDirs)
         VERBOSE("scan share dir: " << dir);
 
-    std::transform(shareDirs.begin(), shareDirs.end(), shareDirs.begin(), std::bind2nd(std::ptr_fun(&concatePath2), "themes"));
+    std::transform(shareDirs.begin(), shareDirs.end(), shareDirs.begin(),
+        [](const std::string& str) { return concatePath2(str, "themes"); });
     shareDirs.remove_if(dirNotFound());
 
     if(shareDirs.empty())
@@ -127,7 +128,8 @@ bool GameTheme::loadResources(const Application & app)
         return false;
     }
 
-    std::transform(shareDirs.begin(), shareDirs.end(), shareDirs.begin(), std::bind2nd(std::ptr_fun(&concatePath2), app.theme.c_str()));
+    std::transform(shareDirs.begin(), shareDirs.end(), shareDirs.begin(),
+        [app](const std::string& str) { return concatePath2(str, app.theme.c_str()); });
     shareDirs.remove_if(dirNotFound());
 
     if(shareDirs.empty())
