@@ -20,6 +20,9 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <random>
+#include <algorithm>
+
 #include "battle.h"
 
 namespace Battle
@@ -56,10 +59,14 @@ BattleStrikes Battle::rangersAttack(const BattleCreatures & rangers, BattleParty
 {
     BattleStrikes res;
 
+    std::random_device rd;
+    std::mt19937 mtg(rd());
+
     for(auto & bcr : rangers)
     {
 	BattleCreatures bcrs = enemy.toBattleCreatures(Specials() << Speciality::IgnoreMissiles, false);
-        std::random_shuffle(bcrs.begin(), bcrs.end());
+
+        std::shuffle(bcrs.begin(), bcrs.end(), mtg);
 
 	auto tgt = bcrs.size() ? bcrs.front() : nullptr;
 	if(bcr && tgt) res << applyRangerAttack(*bcr, *tgt);
@@ -146,7 +153,10 @@ BattleStrikes Battle::meleeAttack(BattleUnit & skill, BattleParty & enemy)
     BattleStrikes res;
     BattleCreatures bcrs = enemy.toBattleCreatures();
 
-    std::random_shuffle(bcrs.begin(), bcrs.end());
+    std::random_device rd;
+    std::mt19937 mtg(rd());
+    std::shuffle(bcrs.begin(), bcrs.end(), mtg);
+
     auto target = bcrs.size() ? bcrs.front() : nullptr;
 
     if(target && target->isAlive() && skill.isAlive())
@@ -179,11 +189,13 @@ BattleStrikes Battle::doTargetStrike(BattleCreature & bcr, const BattleCreatures
 BattleStrikes Battle::meleesAttack(BattleCreatures attackers, BattleParty & enemy)
 {
     BattleStrikes res;
+    std::random_device rd;
+    std::mt19937 mtg(rd());
 
     for(auto & bcr : attackers)
     {
 	BattleCreatures bcrs = enemy.toBattleCreatures();
-        std::random_shuffle(bcrs.begin(), bcrs.end());
+        std::shuffle(bcrs.begin(), bcrs.end(), mtg);
 
 	auto tgt = bcrs.size() ? bcrs.front() : nullptr;
 	if(bcr && tgt)
@@ -227,7 +239,11 @@ BattleStrikes Battle::doAttackParty(BattleParty & attackers, BattleTown & town, 
     if(town.isRanger())
     {
 	BattleCreatures bcrs = attackers.toBattleCreatures(Specials() << Speciality::IgnoreMissiles, false);
-        std::random_shuffle(bcrs.begin(), bcrs.end());
+
+        std::random_device rd;
+        std::mt19937 mtg(rd());
+        std::shuffle(bcrs.begin(), bcrs.end(), mtg);
+
 	auto target = bcrs.size() ? bcrs.front() : nullptr;
 
 	if(target)

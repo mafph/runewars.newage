@@ -92,11 +92,6 @@ void GameTheme::clear(void)
     cacheBinaries.clear();
 }
 
-std::string concatePath2(std::string str, const char* ptr)
-{
-    return Systems::concatePath(str, ptr);
-}
-
 bool GameTheme::loadResources(const Application & app)
 {
 #if defined(ANDROID)
@@ -118,7 +113,7 @@ bool GameTheme::loadResources(const Application & app)
     for(auto & dir: shareDirs)
         VERBOSE("scan share dir: " << dir);
 
-    std::transform(shareDirs.begin(), shareDirs.end(), shareDirs.begin(), std::bind2nd(std::ptr_fun(&concatePath2), "themes"));
+    std::transform(shareDirs.begin(), shareDirs.end(), shareDirs.begin(), [](auto & path){ return Systems::concatePath(path, "themes"); });
     shareDirs.remove_if(dirNotFound());
 
     if(shareDirs.empty())
@@ -127,7 +122,7 @@ bool GameTheme::loadResources(const Application & app)
         return false;
     }
 
-    std::transform(shareDirs.begin(), shareDirs.end(), shareDirs.begin(), std::bind2nd(std::ptr_fun(&concatePath2), app.theme.c_str()));
+    std::transform(shareDirs.begin(), shareDirs.end(), shareDirs.begin(), [&](auto & path){ return Systems::concatePath(path, app.theme); });
     shareDirs.remove_if(dirNotFound());
 
     if(shareDirs.empty())

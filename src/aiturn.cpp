@@ -21,6 +21,9 @@
  ***************************************************************************/
 
 #include <set>
+#include <random>
+#include <algorithm>
+
 #include "aiturn.h"
 
 namespace GameData
@@ -427,7 +430,10 @@ int AI::mahjongSelect(const GameStones & stones, const VecStones & trash, const 
 
 	std::vector<StoneCost> rnd; rnd.reserve(8);
 	std::copy(itbeg, itend, std::back_inserter(rnd));
-	std::random_shuffle(rnd.begin(), rnd.end());
+
+        std::random_device rd;
+        std::mt19937 mtg(rd());
+	std::shuffle(rnd.begin(), rnd.end(), mtg);
 
 	// first find casted
 	auto itres = std::find_if(rnd.begin(), rnd.end(), [](const StoneCost & sc) { return sc.stone.isCasted(); });
@@ -518,7 +524,10 @@ void AI::adventureMove(const RemotePlayer & player, ActionList & actions)
 	// set target land
 	{
 	    Lands lands = AI::findTargetsFor(party.toBaseStatSummary(), player.clan);
-	    std::random_shuffle(lands.begin(), lands.end());
+
+            std::random_device rd;
+            std::mt19937 mtg(rd());
+	    std::shuffle(lands.begin(), lands.end(), mtg);
 
 	    if(lands.size())
 	    {

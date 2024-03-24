@@ -25,6 +25,7 @@
 #include <numeric>
 #include <sstream>
 #include <forward_list>
+#include <random>
 #include <algorithm>
 
 #include "gamedata.h"
@@ -1314,7 +1315,7 @@ bool GameStones::allowCast(const Stones & rules) const
 	return true;
 
     GameStones stones = *this;
-    stones.resize(std::distance(stones.begin(), std::remove_if(stones.begin(), stones.end(), std::ptr_fun(&GameStone::isCasted))));
+    stones.resize(std::distance(stones.begin(), std::remove_if(stones.begin(), stones.end(), [](auto & st){ return GameStone::isCasted(st); })));
 
     Stones uniq = rules.toUnique();
 
@@ -2790,19 +2791,22 @@ void CroupierSet::reset(void)
 		    Stone::Wind1, Stone::Wind2, Stone::Wind3, Stone::Wind4,
 		    Stone::Dragon1, Stone::Dragon2, Stone::Dragon3 };
 
+    std::random_device rd;
+    std::mt19937 mtg(rd());
+
     bank.clear();
 
     bank.insert(bank.end(), stones.begin(), stones.end());
-    std::random_shuffle(bank.begin(), bank.end());
+    std::shuffle(bank.begin(), bank.end(), mtg);
 
     bank.insert(bank.end(), stones.begin(), stones.end());
-    std::random_shuffle(bank.begin(), bank.end());
+    std::shuffle(bank.begin(), bank.end(), mtg);
 
     bank.insert(bank.end(), stones.begin(), stones.end());
-    std::random_shuffle(bank.begin(), bank.end());
+    std::shuffle(bank.begin(), bank.end(), mtg);
 
     bank.insert(bank.end(), stones.begin(), stones.end());
-    std::random_shuffle(bank.begin(), bank.end());
+    std::shuffle(bank.begin(), bank.end(), mtg);
 
     trash.clear();
     last = 0;
@@ -2927,6 +2931,9 @@ Persons::Persons(const Person & person)
     std::vector<Clan::clan_t> clans(clans_all);
     clans.erase(std::find(clans.begin(), clans.end(), person.clan.id()));
 
+    std::random_device rd;
+    std::mt19937 mtg(rd());
+
     while(! clans.empty())
     {
 	Avatars avatars = GameData::avatarsOfClan(clans.back());
@@ -2936,7 +2943,7 @@ Persons::Persons(const Person & person)
 			[&](const Person & pers){ return pers.avatar == ava; });
 	});
 	avatars.erase(it, avatars.end());
-        std::random_shuffle(avatars.begin(), avatars.end());
+        std::shuffle(avatars.begin(), avatars.end(), mtg);
 
 	push_back(Person(avatars.front(), clans.back(), Wind()));
 	clans.pop_back();
@@ -2948,7 +2955,7 @@ Persons::Persons(const Person & person)
 	for(auto & pers : *this)
 	    pers.setAI(true);
 
-	std::random_shuffle(begin(), end());
+	std::shuffle(begin(), end(), mtg);
 
 	at(0).wind = Wind(Wind::East);
 	at(1).wind = Wind(Wind::South);

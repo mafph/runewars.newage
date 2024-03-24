@@ -20,7 +20,9 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <random>
 #include <clocale>
+#include <algorithm>
 
 #include "gametheme.h"
 #include "settings.h"
@@ -192,7 +194,9 @@ Person fixedEmptyPerson(const Person & cur)
     if(! cur.avatar.isValid())
     {
         Avatars avatars = GameData::avatarsOfClan(cur.clan);
-        std::random_shuffle(avatars.begin(), avatars.end());
+        std::random_device rd;
+        std::mt19937 mtg(rd());
+        std::shuffle(avatars.begin(), avatars.end(), mtg);
         return Person(avatars.front(), cur.clan, cur.wind);
     }
 
